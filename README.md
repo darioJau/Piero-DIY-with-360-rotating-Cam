@@ -145,6 +145,11 @@ Finalmente, lo implementaremos en Simulink mediante una LookUpTable.
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/1f3e17a9-af00-48bd-961b-2eaa2de85a47)
 
+Con los valores correspondientes en las Lookup Table de 1 dimensión:
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/8d442c64-4f74-4225-8650-9e3f8a910b5a)
+
+
 
 A partir de esta calibración de los sensores, ya podemos trabajar con los datos que obtenemos de ellos y utilizarlos correctamente.
 
