@@ -17,7 +17,9 @@ plot(distancia_teorica,distancia_medida_sc)
 legend("Recta ideal", "Recta experimental (cc)", "Recta experimental (sc)",'Location','northwest')
 hold off
 ```
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/c4d78d98-50ec-49ed-a1ec-e31bac81b5c0)
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/6aa805ec-7f3c-45c9-a80d-fca415e16025)
+
 
 Ahora, realizamos una regresión lineal para obtener la ecuacion de ajuste de los datos experimentales.
 
@@ -140,7 +142,9 @@ mejora_sc = (error_sin_ajuste_sc-error_con_ajuste_sc)*100/error_sin_ajuste_sc
 Es decir, el ajuste de ganancia variable supone un 71,7 % de mejora en la resolución del sensor con cable y un 75,8 % en la resolución del sensor sin cable.
 Finalmente, lo implementaremos en Simulink mediante una LookUpTable.
 
-<img width="1679" alt="Captura de pantalla 2023-10-13 a las 10 18 56" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/6b16c1f6-72f0-4877-9a98-de98f01b4d3c">
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/1f3e17a9-af00-48bd-961b-2eaa2de85a47)
+
 
 A partir de esta calibración de los sensores, ya podemos trabajar con los datos que obtenemos de ellos y utilizarlos correctamente.
 
