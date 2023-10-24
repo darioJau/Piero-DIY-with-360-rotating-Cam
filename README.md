@@ -2,11 +2,34 @@
 
 ## Calibración de los sensores
 El VL53L0X es capaz de medir distancias de entre 50 y 2000 milímetros (medidas con un error asumible hasta 1200 mm max).
-Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente.
-
-<img width="1216" alt="Captura de pantalla 2023-10-13 a las 10 10 41" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/83056cb0-7e0c-473b-8b42-f6fd63c83aaa">
+Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente.Realizamos la calibración simultanea 
+Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, uno de ellos tiene atado un cable por lo que, hasta que los coloquemos en su posición definitiva, se llamarán **"cc"** (con cable) y **"sc"** (sin cable).
+```
+distancia_teorica=[50:50:1200];
+distancia_medida_cc=[55 107 158 214 274 320 370 420 465 515 565 610 655 700 750 800 840 900 930 980 1000 1030 1100 1150];
+distancia_medida_sc=[57 108 160 217 270 320 375 423 475 520 565 620 660 710 750 800 850 895 930 980 1010 1030 1085 1140];
+figure()
+grid on
+hold on
+plot(distancia_teorica,distancia_teorica)
+plot(distancia_teorica,distancia_medida_cc)
+plot(distancia_teorica,distancia_medida_sc)
+legend("Recta ideal", "Recta experimental (cc)", "Recta experimental (sc)",'Location','northwest')
+hold off
+```
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/c4d78d98-50ec-49ed-a1ec-e31bac81b5c0)
 
 Ahora, realizamos una regresión lineal para obtener la ecuacion de ajuste de los datos experimentales.
+Y ajustaremos a una parábola ya que es el polinomio que mejor se ajusta a simple vista
+```
+pol_cc = polyfit(distancia_teorica,distancia_medida_cc,2)
+pol_sc = polyfit(distancia_teorica,distancia_medida_sc,2) 
+```
+Teniendo como resultados:
+```
+
+```
+
 
 <img width="452" alt="Captura de pantalla 2023-10-13 a las 10 11 55" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/08f200c3-6ff9-43f1-aace-571f04aff274">
 
