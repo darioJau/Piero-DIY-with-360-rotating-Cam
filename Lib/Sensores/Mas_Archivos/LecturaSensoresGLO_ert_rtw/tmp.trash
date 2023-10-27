@@ -1,0 +1,9 @@
+
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e9801 (probably m2560)
+avrdude: reading input file "../LecturaSensoresGLO.hex"
+avrdude: writing flash (30596 bytes):
+avrdude: 30596 bytes of flash written
+
+avrdude done.  Thank you.
+
