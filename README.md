@@ -2,43 +2,154 @@
 
 ## Calibración de los sensores
 El VL53L0X es capaz de medir distancias de entre 50 y 2000 milímetros (medidas con un error asumible hasta 1200 mm max).
-Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente.
+Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente.Realizamos la calibración simultanea 
+Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, uno de ellos tiene atado un cable por lo que, hasta que los coloquemos en su posición definitiva, se llamarán **"cc"** (con cable) y **"sc"** (sin cable).
+```
+distancia_teorica=[50:50:1200];
+distancia_medida_cc=[55 107 158 214 274 320 370 420 465 515 565 610 655 700 750 800 840 900 930 980 1000 1030 1100 1150];
+distancia_medida_sc=[57 108 160 217 270 320 375 423 475 520 565 620 660 710 750 800 850 895 930 980 1010 1030 1085 1140];
+figure()
+grid on
+hold on
+plot(distancia_teorica,distancia_teorica)
+plot(distancia_teorica,distancia_medida_cc)
+plot(distancia_teorica,distancia_medida_sc)
+legend("Recta ideal", "Recta experimental (cc)", "Recta experimental (sc)",'Location','northwest')
+hold off
+```
 
-<img width="1216" alt="Captura de pantalla 2023-10-13 a las 10 10 41" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/83056cb0-7e0c-473b-8b42-f6fd63c83aaa">
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/6aa805ec-7f3c-45c9-a80d-fca415e16025)
+
 
 Ahora, realizamos una regresión lineal para obtener la ecuacion de ajuste de los datos experimentales.
 
-<img width="452" alt="Captura de pantalla 2023-10-13 a las 10 11 55" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/08f200c3-6ff9-43f1-aace-571f04aff274">
+Y ajustaremos a una parábola ya que es el polinomio que mejor se ajusta a simple vista
+```
+pol_cc = polyfit(distancia_teorica,distancia_medida_cc,2)
+pol_sc = polyfit(distancia_teorica,distancia_medida_sc,2) 
+```
+Teniendo como resultados:
+```
+ pol_cc =  [-0.0001    1.0895    1.3982]
+ pol_sc =  [-0.0001    1.1217   -1.7490]
 
-Y lo ajustamos a una parábola ya que es el polinomio que mejor se ajusta a simple vista
+```
+
 
 Representamos la recta de ajuste con la ideal
+´´´
+x = 50:1:1200;
+y_teo = polyval([1 0],x);
+y_exp_cc = polyval(pol_cc,x);
+y_exp_sc = polyval(pol_sc,x);
 
-<img width="1219" alt="Captura de pantalla 2023-10-13 a las 10 13 19" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/b08e514b-afe6-4e45-a10b-06333c8237bf">
+figure()
+grid on
+hold on
+plot(x,y_teo)
+plot(x,y_exp_cc)
+plot(x,y_exp_sc)
+legend("Recta ideal","Recta experimental ajustada (cc)", "Recta experimental ajustada (sc)", 'Location','northwest')
+hold off
+´´´
 
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/52b91b0d-9681-4d2c-a533-42190ba50f21)
 
  
 
-Si quisieramos que la recta (ajustada) experimental coincidiese con la teórica, no sería posible realizar un control proporcional con una ganancia estática, dado que el valor de dicha ganancia debe de ir cambiando en función de la entrada. Por tanto, el control del sensor lo realizaremos mediante una LookUpTable, la cual contendrá la ganancia necesaria para realizar dicho ajuste en función de la medida que arroje el sensor. Calculamos dicho vector de ganancia:
-
-<img width="1214" alt="Captura de pantalla 2023-10-13 a las 10 14 08" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ed8590f9-b485-4af9-ae14-69699ad31935">
+Si quisieramos que la recta (ajustada) experimental coincidiese con la teórica, no sería posible realizar un control proporcional con una ganancia estática, dado que el valor de dicha ganancia debe de ir cambiando en función de la entrada. Por tanto, el control de los sensores lo realizaremos mediante una LookUpTable, la cual contendrá la ganancia necesaria para realizar dicho ajuste en función de la medida que arroje el sensor. Calculamos dicho vector de ganancia:
 
 
+´´´
+K_cc = zeros(1,1151);
+K_sc = zeros(1,1151);
 
-Representando dicho vector de ganancias, vemos como el valor de la ganancia varía desde un valor menor a la unidad hasta un valor superior a ella, pasando por la unidad en el punto de corte entre las rectas teórica y experimental. Para comprobar la efectividad de dicho ajuste, representaremos las medias experimentales al haberles aplicado la ganancia calculada.
+for i = 1:1:1151
+    K_cc(i) = y_teo(i)/y_exp_cc(i);
+    K_sc(i) = y_teo(i)/y_exp_sc(i);
+end
 
-<img width="1214" alt="Captura de pantalla 2023-10-13 a las 10 15 02" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/4224ff16-d6a9-411b-9be5-6d98bc5b2cfa">
+figure()
+grid on
+hold on
+plot(x,K_cc)
+plot(x,K_sc)
+legend("Vector de ganancias (cc)", "Vector de gananacias (sc)", 'Location','northwest')
+hold off
+´´´
+
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/09ddd94d-86fa-4323-a6a8-9893ad215d7b)
+
+
+
+Representando dichos vectores de ganancias, vemos como el valor de la ganancia varía desde un valor menor a la unidad hasta un valor superior a ella, pasando por la unidad en el punto de corte entre las rectas teórica y experimental. Para comprobar la efectividad de dicho ajuste, representaremos las medias experimentales al haberles aplicado la ganancia calculada.
+
+´´´
+distancia_medida_ajustada_cc = zeros(1,24);
+distancia_medida_ajustada_sc = zeros(1,24);
+for i = 1:1:24
+    distancia_medida_ajustada_cc(i)=distancia_medida_cc(i)*K_cc(distancia_medida_cc(i));
+    distancia_medida_ajustada_sc(i)=distancia_medida_sc(i)*K_sc(distancia_medida_sc(i));
+end
+
+figure()
+hold on
+plot(distancia_teorica,distancia_teorica)
+plot(distancia_teorica,distancia_medida_cc)
+plot(distancia_teorica,distancia_medida_ajustada_cc, 'g')
+title('Sensor con cable')
+legend("Recta ideal","Recta experimental","Recta experimental ajustada con ganancia",'Location','northwest')
+hold off
+´´´
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/75e6c337-734b-4f53-8d98-7241564f5ffe)
+
+
+´´´
+figure()
+hold on
+plot(distancia_teorica,distancia_teorica)
+plot(distancia_teorica,distancia_medida_sc)
+plot(distancia_teorica,distancia_medida_ajustada_sc,'g')
+title('Sensor sin cable')
+legend("Recta ideal","Recta experimental","Recta experimental ajustada con ganancia",'Location','northwest')
+hold off
+´´´
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/62d96b0d-65e6-4b28-a620-81f712c051c2)
 
 
 
 Y comprobamos la mejora en el error después del ajuste:
 
-<img width="1219" alt="Captura de pantalla 2023-10-13 a las 10 15 53" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/2e9023c3-bb07-4382-be3f-d131b59701fe">
+´´´
+error_sin_ajuste_cc = 0; error_sin_ajuste_sc = 0;
+error_con_ajuste_cc = 0; error_con_ajuste_sc = 0;
+for i = 1:1:24
+    error_sin_ajuste_cc = error_sin_ajuste_cc+abs(distancia_teorica(i)-distancia_medida_cc(i))/(24*distancia_teorica(i));
+    error_sin_ajuste_sc = error_sin_ajuste_sc+abs(distancia_teorica(i)-distancia_medida_sc(i))/(24*distancia_teorica(i));
+    error_con_ajuste_cc = error_con_ajuste_cc+abs(distancia_teorica(i)-distancia_medida_ajustada_cc(i))/(24*distancia_teorica(i));
+    error_con_ajuste_sc = error_con_ajuste_sc+abs(distancia_teorica(i)-distancia_medida_ajustada_sc(i))/(24*distancia_teorica(i));
+end
 
-Es decir, el ajuste de ganancia variable supone un 75 % de mejora en la resolución del sensor.
+mejora_cc = (error_sin_ajuste_cc-error_con_ajuste_cc)*100/error_sin_ajuste_cc
+ >> mejora_cc = 71.6842
+mejora_sc = (error_sin_ajuste_sc-error_con_ajuste_sc)*100/error_sin_ajuste_sc
+ >> mejora_sc = 75.8809
+´´´
+
+Es decir, el ajuste de ganancia variable supone un 71,7 % de mejora en la resolución del sensor con cable y un 75,8 % en la resolución del sensor sin cable.
 Finalmente, lo implementaremos en Simulink mediante una LookUpTable.
 
-<img width="1679" alt="Captura de pantalla 2023-10-13 a las 10 18 56" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/6b16c1f6-72f0-4877-9a98-de98f01b4d3c">
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/1f3e17a9-af00-48bd-961b-2eaa2de85a47)
+
+Con los valores correspondientes en las Lookup Table de 1 dimensión:
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/8d442c64-4f74-4225-8650-9e3f8a910b5a)
+
+
 
 A partir de esta calibración de los sensores, ya podemos trabajar con los datos que obtenemos de ellos y utilizarlos correctamente.
 
