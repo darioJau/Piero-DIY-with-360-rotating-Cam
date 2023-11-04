@@ -3,7 +3,7 @@
 - [Introducción](#Introducción)
 - [Montaje](#Montaje)
 - [Calibración de los sensores](#calibración-de-los-sensores)
- - [Sensores laser VL53L0X](#sensores-laser-vl53l0x)
+  _- [Sensores laser VL53L0X](#sensores-laser-vl53l0x)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
 
 ## Introducción
