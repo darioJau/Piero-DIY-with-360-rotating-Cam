@@ -6,7 +6,7 @@
   - [Sensores laser VL53L0X](#sensores-laser-vl53l0x)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Controlador reactivo](#controlador-reactivo)
-  - [Encoders de los motores](#encoder-de-los-motores)
+  - [Encoders de los motores](#encoders-de-los-motores)
 
 ## Introducción
 
