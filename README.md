@@ -5,6 +5,8 @@
 - [Calibración de los sensores](#calibración-de-los-sensores)
   - [Sensores laser VL53L0X](#sensores-laser-vl53l0x)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
+  - [Controlador reactivo](#controlador-reactivo)
+  - [Encoders de los motores](#encoder-de-los-motores)
 
 ## Introducción
 
@@ -221,5 +223,8 @@ A partir de esta calibración de los sensores, ya podemos trabajar con los datos
 
 ## Programación del Piero-DIY
 
+###Controlador reactivo
+
+###Encoders de los motores
 
    
