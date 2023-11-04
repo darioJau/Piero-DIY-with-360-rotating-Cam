@@ -1,8 +1,14 @@
 # PieroBlankProject
 
-- [Intro](##intro)
-- [Montaje](##Montaje)
-- [Calibración de los sensores](##Calibración de los sensores)
+- [Introducción](#Introducción)
+- [Montaje](#Montaje)
+- [Calibración de los sensores](#calibración-de-los-sensores)
+
+## Introducción
+
+
+## Montaje
+
 
 ## Calibración de los sensores
 El VL53L0X es capaz de medir distancias de entre 50 y 2000 milímetros (medidas con un error asumible hasta 1200 mm max).
