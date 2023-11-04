@@ -223,8 +223,8 @@ A partir de esta calibración de los sensores, ya podemos trabajar con los datos
 
 ## Programación del Piero-DIY
 
-###Controlador reactivo
+### Controlador reactivo
 
-###Encoders de los motores
+### Encoders de los motores
 
    
