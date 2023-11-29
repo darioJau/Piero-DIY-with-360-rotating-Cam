@@ -93,6 +93,7 @@ y_teo = polyval([1 0],x);
 y_exp_L = polyval(pol_L,x);
 y_exp_R = polyval(pol_R,x);
 ´´´
+
 ´´´
 figure()
 grid on
@@ -116,6 +117,7 @@ cero_R = 0-polyval(pol_R,0)
 pol_L(1,2) = pol_L(1,2)+cero_L;
 pol_R(1,2) = pol_R(1,2)+cero_R;
 ´´´
+
 ´´´
 K_L = 400/polyval(pol_L,400)
 K_R = 400/polyval(pol_R,400)
