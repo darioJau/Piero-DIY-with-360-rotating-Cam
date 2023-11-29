@@ -9,11 +9,6 @@
   - [Encoders de los motores](#encoders-de-los-motores)
 
 ## Introducción
-| Nombre   | Edad | Ciudad    |
-|----------|------|-----------|
-| Juan     | 25   | Barcelona |
-| María    | 30   | Madrid    |
-| Carlos   | 28   | Valencia  |
 
 
 ## Montaje
@@ -43,9 +38,54 @@ Por último, realizamos todas las conexiones como se precisa en este esquema:
 
 
 ## Calibración de los sensores
-### Sensores laser VL53L0X
-El VL53L0X es capaz de medir distancias de entre 50 y 2000 milímetros (medidas con un error asumible hasta 1200 mm max).
-Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente.Realizamos la calibración simultanea 
+### Sensores de distancia Sonar
+El ensor de ultra sonidos UD-016 es capaz de medir distancias de entre 4 cm y 300 cm (con una precisión de 0.3cm +- 1%).
+Se toman las medida
+| Cm  | Sensor L |
+|-----|----------|
+| 10  | 32       |
+| 20  | 69       |
+| 30  | 99       |
+| 40  | 130      |
+| 50  | 162      |
+| 60  | 190      |
+| 70  | 228      |
+| 80  | 253      |
+| 90  | 293      |
+| 100 | 330      |
+| 110 | 360      |
+| 120 | 392      |
+| 130 | 430      |
+| 140 | 462      |
+| 150 | 497      |
+| 175 | 580      |
+| 200 | 678      |
+| 225 | 756      |
+| 250 | 836      |
+
+| Cm  | Sensor R |
+|-----|----------|
+| 10  | 29       |
+| 20  | 66       |
+| 30  | 96       |
+| 40  | 130      |
+| 50  | 160      |
+| 60  | 192      |
+| 70  | 225      |
+| 80  | 260      |
+| 90  | 294      |
+| 100 | 326      |
+| 110 | 360      |
+| 120 | 395      |
+| 130 | 427      |
+| 140 | 463      |
+| 150 | 497      |
+| 175 | 578      |
+| 200 | 665      |
+| 225 | 746      |
+| 250 | 830      |
+
+Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente. Realizamos la calibración simultanea 
 Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, uno de ellos tiene atado un cable por lo que, hasta que los coloquemos en su posición definitiva, se llamarán **"cc"** (con cable) y **"sc"** (sin cable).
 ```
 distancia_teorica=[50:50:1200];
