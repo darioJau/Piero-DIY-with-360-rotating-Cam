@@ -9,6 +9,11 @@
   - [Encoders de los motores](#encoders-de-los-motores)
 
 ## Introducción
+| Nombre   | Edad | Ciudad    |
+|----------|------|-----------|
+| Juan     | 25   | Barcelona |
+| María    | 30   | Madrid    |
+| Carlos   | 28   | Valencia  |
 
 
 ## Montaje
