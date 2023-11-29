@@ -41,49 +41,18 @@ Por último, realizamos todas las conexiones como se precisa en este esquema:
 ### Sensores de distancia Sonar
 El ensor de ultra sonidos UD-016 es capaz de medir distancias de entre 4 cm y 300 cm (con una precisión de 0.3cm +- 1%).
 Se toman las medida
-| Cm  | Sensor L |
-|-----|----------|
-| 10  | 32       |
-| 20  | 69       |
-| 30  | 99       |
-| 40  | 130      |
-| 50  | 162      |
-| 60  | 190      |
-| 70  | 228      |
-| 80  | 253      |
-| 90  | 293      |
-| 100 | 330      |
-| 110 | 360      |
-| 120 | 392      |
-| 130 | 430      |
-| 140 | 462      |
-| 150 | 497      |
-| 175 | 580      |
-| 200 | 678      |
-| 225 | 756      |
-| 250 | 836      |
+Sensor L:
 
-| Cm  | Sensor R |
-|-----|----------|
-| 10  | 29       |
-| 20  | 66       |
-| 30  | 96       |
-| 40  | 130      |
-| 50  | 160      |
-| 60  | 192      |
-| 70  | 225      |
-| 80  | 260      |
-| 90  | 294      |
-| 100 | 326      |
-| 110 | 360      |
-| 120 | 395      |
-| 130 | 427      |
-| 140 | 463      |
-| 150 | 497      |
-| 175 | 578      |
-| 200 | 665      |
-| 225 | 746      |
-| 250 | 830      |
+Cm | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 | 110 | 120 | 130 | 140 | 150 | 175 | 200 | 225 | 250
+---|----|----|----|----|----|----|----|----|----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+Sensor | 32 | 69 | 99 | 130 | 162 | 190 | 228 | 253 | 293 | 330 | 360 | 392 | 430 | 462 | 497 | 580 | 678 | 756 | 836
+
+Sensor R:
+
+Cm | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 | 110 | 120 | 130 | 140 | 150 | 175 | 200 | 225 | 250
+---|----|----|----|----|----|----|----|----|----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+Sensor | 29 | 66 | 96 | 130 | 160 | 192 | 225 | 260 | 294 | 326 | 360 | 395 | 427 | 463 | 497 | 578 | 665 | 746 | 830
+
 
 Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente. Realizamos la calibración simultanea 
 Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, uno de ellos tiene atado un cable por lo que, hasta que los coloquemos en su posición definitiva, se llamarán **"cc"** (con cable) y **"sc"** (sin cable).
