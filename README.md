@@ -86,7 +86,7 @@ Teniendo como resultados:
 ```
 Representamos las rectas de ajuste con la ideal
 ´´´
-x = 10:1:2500;
+x = 10:1:250;
 y_teo = polyval([1 0],x);
 y_exp_L = polyval(pol_L,x);
 y_exp_R = polyval(pol_R,x);
@@ -101,9 +101,11 @@ legend("Recta ideal","Recta experimental ajustada (L)", "Recta experimental ajus
 hold off
 ´´´
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/b4dff96d-04ca-436d-9922-a258d5ac92cf)
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/cfebd189-7147-4493-818c-2ce952ab4edd)
+
  
 Para ajustar la recta del sensor a la teórica, realizaremos un ajuste de 0 y de ganancia:
+
 ´´´
 cero_L = 0-polyval(pol_L,0)
 cero_R = 0-polyval(pol_R,0)
