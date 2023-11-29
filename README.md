@@ -16,7 +16,7 @@ Se adjuntan, a continuación, los pasos del montaje del Piero-DIY:
 
 En primer lugar pusimos los componentes del piero montados a modo de banco de pruebas para ir probando parte de la programación de los motores, sensores, etc.
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/7b83e131-c530-452e-bcf4-3c4c22012277" alt="BancoDePruebas_Tapa" width="500" align="center">
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/7b83e131-c530-452e-bcf4-3c4c22012277" alt="BancoDePruebas_Tapa" width="200" height="300" align="center">
 
 
 Una vez tenemos la caja firmada por el profesor, desmontamos este banco de pruebas y comenzamos con el montaje.
@@ -56,156 +56,63 @@ Medida Real (cm) | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 | 110 | 120 
 Sensor | 29 | 66 | 96 | 130 | 160 | 192 | 225 | 260 | 294 | 326 | 360 | 395 | 427 | 463 | 497 | 578 | 665 | 746 | 830
 
 
-Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente. Realizamos la calibración simultanea 
-Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, uno de ellos tiene atado un cable por lo que, hasta que los coloquemos en su posición definitiva, se llamarán **"cc"** (con cable) y **"sc"** (sin cable).
+Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente.Realizamos la calibración simultanea 
+Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, los distingueremos como sensor izquierdo ("L") y sensor derecho ("R").
 ```
 distancia_teorica=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 175, 200, 225, 250];
 distancia_medida_L = [32, 69, 99, 130, 162, 190, 228, 253, 293, 330, 360, 392, 430, 462, 497, 580, 678, 756, 836];
-distancia_medida_R = [29, 66, 96, 130, 160, 192, 225, 260, 294, 326, 360, 395, 427, 463, 497, 578, 665, 746, 830];
-figure()
+distancia_medida_R = [29, 66, 96, 130, 160, 192, 225, 260, 294, 326, 360, 395, 427, 463, 497, 578, 665, 746, 830];figure()
 grid on
 hold on
 plot(distancia_teorica,distancia_teorica)
-plot(distancia_teorica,distancia_medida_cc)
-plot(distancia_teorica,distancia_medida_sc)
-legend("Recta ideal", "Recta experimental (cc)", "Recta experimental (sc)",'Location','northwest')
+plot(distancia_teorica,distancia_medida_L)
+plot(distancia_teorica,distancia_medida_R)
+legend("Recta ideal", "Recta experimental (L)", "Recta experimental (R)",'Location','northwest')
 hold off
 ```
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/e5c5df32-51ff-439d-8a15-0922776a0231)
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/6aa805ec-7f3c-45c9-a80d-fca415e16025)
+Ahora, realizamos una regresión lineal para obtener la ecuacion de ajuste de los datos experimentales de cada sensor.
 
-
-Ahora, realizamos una regresión lineal para obtener la ecuacion de ajuste de los datos experimentales.
-
-Y ajustaremos a una parábola ya que es el polinomio que mejor se ajusta a simple vista
+Y ajustaremos a una recta ya que es el polinomio que mejor se ajusta a simple vista
 ```
-pol_cc = polyfit(distancia_teorica,distancia_medida_cc,2)
-pol_sc = polyfit(distancia_teorica,distancia_medida_sc,2) 
+pol_L= polyfit(distancia_teorica,distancia_medida_L,1) 
+pol_R = polyfit(distancia_teorica,distancia_medida_R,1) 
 ```
 Teniendo como resultados:
 ```
- pol_cc =  [-0.0001    1.0895    1.3982]
- pol_sc =  [-0.0001    1.1217   -1.7490]
-
+ pol_L =  [3.3698 -6.8969]
+ pol_R =  [3.3396 -5.6439]
 ```
-
-
-Representamos la recta de ajuste con la ideal
+Representamos las rectas de ajuste con la ideal
 ´´´
-x = 50:1:1200;
+x = 10:1:2500;
 y_teo = polyval([1 0],x);
-y_exp_cc = polyval(pol_cc,x);
-y_exp_sc = polyval(pol_sc,x);
+y_exp_L = polyval(pol_L,x);
+y_exp_R = polyval(pol_R,x);
 
 figure()
 grid on
 hold on
 plot(x,y_teo)
-plot(x,y_exp_cc)
-plot(x,y_exp_sc)
-legend("Recta ideal","Recta experimental ajustada (cc)", "Recta experimental ajustada (sc)", 'Location','northwest')
+plot(x,y_exp_L)
+plot(x,y_exp_R)
+legend("Recta ideal","Recta experimental ajustada (L)", "Recta experimental ajustada (R)", 'Location','northwest')
 hold off
 ´´´
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/52b91b0d-9681-4d2c-a533-42190ba50f21)
-
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/b4dff96d-04ca-436d-9922-a258d5ac92cf)
  
-
-Si quisieramos que la recta (ajustada) experimental coincidiese con la teórica, no sería posible realizar un control proporcional con una ganancia estática, dado que el valor de dicha ganancia debe de ir cambiando en función de la entrada. Por tanto, el control de los sensores lo realizaremos mediante una LookUpTable, la cual contendrá la ganancia necesaria para realizar dicho ajuste en función de la medida que arroje el sensor. Calculamos dicho vector de ganancia:
-
-
+Para ajustar la recta del sensor a la teórica, realizaremos un ajuste de 0 y de ganancia:
 ´´´
-K_cc = zeros(1,1151);
-K_sc = zeros(1,1151);
+cero_L = 0-polyval(pol_L,0)
+cero_R = 0-polyval(pol_R,0)
+pol_L(1,2) = pol_L(1,2)+cero_L;
+pol_R(1,2) = pol_R(1,2)+cero_R;
 
-for i = 1:1:1151
-    K_cc(i) = y_teo(i)/y_exp_cc(i);
-    K_sc(i) = y_teo(i)/y_exp_sc(i);
-end
-
-figure()
-grid on
-hold on
-plot(x,K_cc)
-plot(x,K_sc)
-legend("Vector de ganancias (cc)", "Vector de gananacias (sc)", 'Location','northwest')
-hold off
+K_L = 400/polyval(pol_L,400)
+K_R = 400/polyval(pol_R,400)
 ´´´
-
-
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/09ddd94d-86fa-4323-a6a8-9893ad215d7b)
-
-
-
-Representando dichos vectores de ganancias, vemos como el valor de la ganancia varía desde un valor menor a la unidad hasta un valor superior a ella, pasando por la unidad en el punto de corte entre las rectas teórica y experimental. Para comprobar la efectividad de dicho ajuste, representaremos las medias experimentales al haberles aplicado la ganancia calculada.
-
-´´´
-distancia_medida_ajustada_cc = zeros(1,24);
-distancia_medida_ajustada_sc = zeros(1,24);
-for i = 1:1:24
-    distancia_medida_ajustada_cc(i)=distancia_medida_cc(i)*K_cc(distancia_medida_cc(i));
-    distancia_medida_ajustada_sc(i)=distancia_medida_sc(i)*K_sc(distancia_medida_sc(i));
-end
-
-figure()
-hold on
-plot(distancia_teorica,distancia_teorica)
-plot(distancia_teorica,distancia_medida_cc)
-plot(distancia_teorica,distancia_medida_ajustada_cc, 'g')
-title('Sensor con cable')
-legend("Recta ideal","Recta experimental","Recta experimental ajustada con ganancia",'Location','northwest')
-hold off
-´´´
-
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/75e6c337-734b-4f53-8d98-7241564f5ffe)
-
-
-´´´
-figure()
-hold on
-plot(distancia_teorica,distancia_teorica)
-plot(distancia_teorica,distancia_medida_sc)
-plot(distancia_teorica,distancia_medida_ajustada_sc,'g')
-title('Sensor sin cable')
-legend("Recta ideal","Recta experimental","Recta experimental ajustada con ganancia",'Location','northwest')
-hold off
-´´´
-
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/62d96b0d-65e6-4b28-a620-81f712c051c2)
-
-
-
-Y comprobamos la mejora en el error después del ajuste:
-
-´´´
-error_sin_ajuste_cc = 0; error_sin_ajuste_sc = 0;
-error_con_ajuste_cc = 0; error_con_ajuste_sc = 0;
-for i = 1:1:24
-    error_sin_ajuste_cc = error_sin_ajuste_cc+abs(distancia_teorica(i)-distancia_medida_cc(i))/(24*distancia_teorica(i));
-    error_sin_ajuste_sc = error_sin_ajuste_sc+abs(distancia_teorica(i)-distancia_medida_sc(i))/(24*distancia_teorica(i));
-    error_con_ajuste_cc = error_con_ajuste_cc+abs(distancia_teorica(i)-distancia_medida_ajustada_cc(i))/(24*distancia_teorica(i));
-    error_con_ajuste_sc = error_con_ajuste_sc+abs(distancia_teorica(i)-distancia_medida_ajustada_sc(i))/(24*distancia_teorica(i));
-end
-
-mejora_cc = (error_sin_ajuste_cc-error_con_ajuste_cc)*100/error_sin_ajuste_cc
- >> mejora_cc = 71.6842
-mejora_sc = (error_sin_ajuste_sc-error_con_ajuste_sc)*100/error_sin_ajuste_sc
- >> mejora_sc = 75.8809
-´´´
-
-Es decir, el ajuste de ganancia variable supone un 71,7 % de mejora en la resolución del sensor con cable y un 75,8 % en la resolución del sensor sin cable.
-Finalmente, lo implementaremos en Simulink mediante una LookUpTable.
-
-
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/1f3e17a9-af00-48bd-961b-2eaa2de85a47)
-
-Con los valores correspondientes en las Lookup Table de 1 dimensión:
-
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/8d442c64-4f74-4225-8650-9e3f8a910b5a)
-
-
-
-A partir de esta calibración de los sensores, ya podemos trabajar con los datos que obtenemos de ellos y utilizarlos correctamente.
 
 ### Enlaces a los videos
 
@@ -224,16 +131,6 @@ A partir de esta calibración de los sensores, ya podemos trabajar con los datos
  Piero evitando paredes (en un rincón y cerca de la puerta)
  
    https://drive.google.com/file/d/1iNn1hf_GFbhXEMNcsurv0YRRfCokeF8o/view?usp=sharing
-
-
-
-
-
-
-
-
-
-
 
 
 
