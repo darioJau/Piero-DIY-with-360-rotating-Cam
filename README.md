@@ -58,8 +58,8 @@ Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respec
 Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, uno de ellos tiene atado un cable por lo que, hasta que los coloquemos en su posición definitiva, se llamarán **"cc"** (con cable) y **"sc"** (sin cable).
 ```
 distancia_teorica=[50:50:1200];
-distancia_medida_cc=[55 107 158 214 274 320 370 420 465 515 565 610 655 700 750 800 840 900 930 980 1000 1030 1100 1150];
-distancia_medida_sc=[57 108 160 217 270 320 375 423 475 520 565 620 660 710 750 800 850 895 930 980 1010 1030 1085 1140];
+distancia_medida_L = [32, 69, 99, 130, 162, 190, 228, 253, 293, 330, 360, 392, 430, 462, 497, 580, 678, 756, 836];
+distancia_medida_R = [29, 66, 96, 130, 160, 192, 225, 260, 294, 326, 360, 395, 427, 463, 497, 578, 665, 746, 830];
 figure()
 grid on
 hold on
