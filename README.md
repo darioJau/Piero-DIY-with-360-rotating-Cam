@@ -57,7 +57,7 @@ Sensor | 29 | 66 | 96 | 130 | 160 | 192 | 225 | 260 | 294 | 326 | 360 | 395 | 42
 Representamos la recta ideal de medidas (si el sensor fuese perfecto) con respecto a la obtenida experimentalmente. Realizamos la calibración simultanea 
 Realizaremos la calibración simultanea de los dos sensores. Para identificarlos, uno de ellos tiene atado un cable por lo que, hasta que los coloquemos en su posición definitiva, se llamarán **"cc"** (con cable) y **"sc"** (sin cable).
 ```
-distancia_teorica=[50:50:1200];
+distancia_teorica=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 175, 200, 225, 250];
 distancia_medida_L = [32, 69, 99, 130, 162, 190, 228, 253, 293, 330, 360, 392, 430, 462, 497, 580, 678, 756, 836];
 distancia_medida_R = [29, 66, 96, 130, 160, 192, 225, 260, 294, 326, 360, 395, 427, 463, 497, 578, 665, 746, 830];
 figure()
