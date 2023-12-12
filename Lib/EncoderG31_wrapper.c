@@ -18,7 +18,7 @@
 #include <math.h>
 # ifndef MATLAB_MEX_FILE
 # include <Arduino.h>
-typedef struct { int pinA; int pinB; int pos;} Encoder;    
+typedef struct { int pinA; int pinB; int32_T pos;} Encoder;    
 volatile Encoder Enc[2] = {{2,3,0}, {18,19,0}};
 //Pines, primero encoder izqda
 
@@ -43,6 +43,37 @@ switch(pin) {
     return -1;
   }
 }
+
+/* Interrupt Service Routine: change on pin A for Encoder 0 */
+void irsPinAEn0(){
+
+    /* read pin B right away */
+    int drB = digitalRead(Enc[0].pinB);
+
+    /* possibly wait before reading pin A, then read it */
+    int drA = digitalRead(Enc[0].pinA);
+
+    /* this updates the counter */
+    if (drA == HIGH) { /* low->high on A? */
+
+        if (drB == LOW) { /* check pin B */
+            Enc[0].pos++; /* going clockwise: increment */
+        } else {
+            Enc[0].pos--; /* going counterclockwise: decrement */
+        }
+
+    } else { /* must be high to low on A */
+
+        if (drB == HIGH) { /* check pin B */
+            Enc[0].pos++; /* going clockwise: increment */
+        } else {
+            Enc[0].pos--; /* going counterclockwise: decrement */
+        }
+
+    } /* end counter update */
+
+} /* end ISR pin A Encoder 0 */
+
 
 /* Interrupt Service Routine: change on pin B for Encoder 0  */
 void isrPinBEn0(){ 
