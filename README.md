@@ -4,7 +4,7 @@
 - [Montaje](#Montaje)
 - [Calibración de los sensores](#calibración-de-los-sensores)
   - [Sensores de distancia Sonar](#sensores-de-distancia-sonar)
-  - [Señalización](#SEÑALIZACIÓN-(LEDS))
+  - [Señalización](#Senalizacion-leds)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Controlador reactivo](#controlador-reactivo)
   - [Encoders de los motores](#encoders-de-los-motores)
@@ -134,7 +134,7 @@ Como resultado en la salida obtendremos una representación de la distancia medi
 El diagrama implementado en SIMULINK es el siguiente:
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/05a3a655-65bd-42c3-8ae5-b46b51d44603)
 
-## SEÑALIZACIÓN (LEDS)
+# Senalizacion leds
 Para la implementación de un sistema de señalización adecuado que defina claramente los estados en los que se encuentra el Piero, haremos uso del siguiente diagrama: 
 <table>
     <tr>
