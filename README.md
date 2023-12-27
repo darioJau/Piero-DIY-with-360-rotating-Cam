@@ -128,6 +128,11 @@ pol_R(1,2) = pol_R(1,2)+cero_R;
 K_L = 400/polyval(pol_L,400)
 K_R = 400/polyval(pol_R,400)
 ```
+Como resultado en la salida obtendremos una representación de la distancia medida en metros, a la que cada sensor detecta su obstáculo más cercano.
+
+El diagrama implementado en SIMULINK es el siguiente:
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/05a3a655-65bd-42c3-8ae5-b46b51d44603)
+
 
 ### Enlaces a los videos
 
