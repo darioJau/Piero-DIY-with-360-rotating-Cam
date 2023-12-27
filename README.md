@@ -1,4 +1,4 @@
-# PieroBlankProject
+# PieroDIYProject Grupo 31 - Laboratorio de Robótica 2023-24
 
 - [Introducción](#Introducción)
 - [Montaje](#Montaje)
