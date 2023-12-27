@@ -150,11 +150,9 @@ Para la implementación de un sistema de señalización adecuado que defina clar
     </tr>
 </table>
 <p>  
-Esto lo implementaremos mediante el siguiente diagrama de SIMULINK:
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4f1f3c4a-bff1-4af8-9e05-58c12ab89261)
-
-Que será un Subsystem que tendrá como entrada un dato binario de 4 bits.
+Esto lo implementaremos mediante el siguiente diagrama de SIMULINK, que será un Subsystem que tendrá como entrada un dato binario de 4 bits.
 </p>
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4f1f3c4a-bff1-4af8-9e05-58c12ab89261)
 ### Enlaces a los videos
 
  Piero moviéndose en línea recta con poca desviación en 3 metros
