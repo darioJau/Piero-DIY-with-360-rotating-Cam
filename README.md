@@ -2,8 +2,10 @@
 
 - [Introducción](#Introducción)
 - [Montaje](#Montaje)
-- [Calibración de los sensores](#calibración-de-los-sensores)
-  - [Sensores de distancia Sonar](#sensores-de-distancia-sonar)
+  - [Calibración de los sensores](#calibración-de-los-sensores)
+    - [Sensores de distancia Sonar](#sensores-de-distancia-sonar)
+  - [Señalización (LEDS)](#Senalizacion-leds)
+  - [Motores](#Motores)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Controlador reactivo](#controlador-reactivo)
   - [Encoders de los motores](#encoders-de-los-motores)
@@ -128,6 +130,43 @@ pol_R(1,2) = pol_R(1,2)+cero_R;
 K_L = 400/polyval(pol_L,400)
 K_R = 400/polyval(pol_R,400)
 ```
+Como resultado en la salida obtendremos una representación de la distancia medida en metros, a la que cada sensor detecta su obstáculo más cercano.
+
+El diagrama implementado en SIMULINK es el siguiente:
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/05a3a655-65bd-42c3-8ae5-b46b51d44603)
+
+## Senalizacion leds
+Para la implementación de un sistema de señalización adecuado que defina claramente los estados en los que se encuentra el Piero, haremos uso del siguiente diagrama: 
+<table>
+    <tr>
+        <th>Verde</th>
+        <th>Azul</th>
+        <th>Rojo</th>
+        <th>Rojo parpadeante</th>
+    </tr>
+    <tr>
+        <td>Sin Obstaculo</td>
+        <td>Obstaculo Derecha</td>
+        <td>Obstaculo Izquierda</td>
+        <td>Obstaculo Ambos Lados</td>
+    </tr>
+</table>
+<p>  
+Esto lo implementaremos mediante el siguiente diagrama de SIMULINK, que será un Subsystem que tendrá como entrada un dato binario de 4 bits.
+</p>
+<h1>Lib -> Senalizacion</h1>
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4f1f3c4a-bff1-4af8-9e05-58c12ab89261" alt="Módulo Senalizacion">
+
+<br>Colocamos para cada bit un bloque BitWise y un Boolean, los cuales nos permiten examinar y utilizar el valor de ese bit.
+En el caso de la intermitencia, colocamos un bloque Switch para diferenciar los casos de Intermitencia (tren de pulsos) o Estable (bloque constante).
+
+## Motores
+Para el modelado de los motores se han creado dos módulos, uno para cada rueda. El diagrama utilizado es el siguiente:
+<h1></h1>
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf" alt="Modulo MotorsG31">
+
+Cada uno de los circuitos cuenta con tres digital output: uno para ir hacia delante, otro que va hacia detrás y un enable que lo habilita.
+
 
 ### Enlaces a los videos
 
@@ -152,6 +191,9 @@ K_R = 400/polyval(pol_R,400)
 ## Programación del Piero-DIY
 
 ### Controlador reactivo
+
+El siguiente segmento presenta el desarrollo de un nuevo programa destinado a capacitar al robot Piero para detectar y evitar obstáculos mediante el uso de los sensores ubicados en la parte delantera. El programa actúa sobre los motores responsables del movimiento de las ruedas para modificar la dirección del robot y sortear obstáculos de manera efectiva.
+La implementación de este programa se basa en tres modelos trabajados previamente: el Modelado de Motores, el Modelado de Sensores y el Modelado de Señalización. Estos modelos proporcionan la base necesaria para que el Piero pueda reconocer obstáculos a través de sus sensores y tomar decisiones en tiempo real para evitar colisiones.
 
 ### Encoders de los motores
 
