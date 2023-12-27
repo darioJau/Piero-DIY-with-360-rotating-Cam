@@ -4,7 +4,7 @@
 - [Montaje](#Montaje)
 - [Calibración de los sensores](#calibración-de-los-sensores)
   - [Sensores de distancia Sonar](#sensores-de-distancia-sonar)
-  - [Señalización](#Señalizacion)
+  - [Señalización](#SEÑALIZACIÓN-(LEDS))
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Controlador reactivo](#controlador-reactivo)
   - [Encoders de los motores](#encoders-de-los-motores)
