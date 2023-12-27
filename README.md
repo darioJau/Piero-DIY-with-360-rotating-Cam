@@ -55,7 +55,7 @@ Por último, realizamos todas las conexiones como se precisa en este esquema:
 ### Sensores de distancia Sonar
 El ensor de ultra sonidos UD-016 es capaz de medir distancias de entre 4 cm y 300 cm (con una precisión de 0.3cm +- 1%).
 La salida analógica varía entre 0 y 5V y el rango de valores de salida del sensor varía entre 0 y 1015
-Se toman las medidas de ambos sensores de forma experimental 
+Se toman las medidas de ambos sensores de forma experimental <br>
 Sensor L:
 
 Real (cm) | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 | 110 | 120 | 130 | 140 | 150 | 175 | 200 | 225 | 250
