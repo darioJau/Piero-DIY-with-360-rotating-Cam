@@ -133,6 +133,22 @@ Como resultado en la salida obtendremos una representación de la distancia medi
 El diagrama implementado en SIMULINK es el siguiente:
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/05a3a655-65bd-42c3-8ae5-b46b51d44603)
 
+## SEÑALIZACIÓN (LEDS)
+Para la implementación de un sistema de señalización adecuado que defina claramente los estados en los que se encuentra el Piero, haremos uso del siguiente diagrama: 
+<table>
+    <tr>
+        <th>Verde</th>
+        <th>Azul</th>
+        <th>Rojo</th>
+        <th>Rojo parpadeante</th>
+    </tr>
+    <tr>
+        <td>Sin Obstaculo</td>
+        <td>Obstaculo Derecha</td>
+        <td>Obstaculo Izquierda</td>
+        <td>Obstaculo Ambos Lados/td>
+    </tr>
+</table>
 
 ### Enlaces a los videos
 
