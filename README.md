@@ -3,10 +3,19 @@
 - [Introducción](#Introducción)
 - [Montaje](#Montaje)
 - [Calibración de los sensores](#calibración-de-los-sensores)
-  - [Sensores laser VL53L0X](#sensores-laser-vl53l0x)
+  - [Sensores de distancia Sonar](#sensores-de-distancia-sonar)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Controlador reactivo](#controlador-reactivo)
   - [Encoders de los motores](#encoders-de-los-motores)
+  - [Control en Bucle Abierto](#control-en-bucle-abierto)
+  - [Control en Bucle Cerrado](#control-en-bucle-cerrado)
+  - [Cinemática del Piero](#cinematica-del-piero)
+  - [Control de orientación](#control-de-orientacion)
+- [Modelos para salir de clase](#modelos-para-salir-de-clase)
+  - [Salir de clase con Signal Builder](#salir-de-clase-con-signal-builder)
+  - [Salir de clase con Waypoints y Matlab Function](#salir-de-clase-con-waypoints-y-matlab-function)
+  - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
+  - [Salir de clase con Waypoints y evitando obstáculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
 
 ## Introducción
 
@@ -146,4 +155,25 @@ K_R = 400/polyval(pol_R,400)
 
 ### Encoders de los motores
 
-   
+### Control en Bucle Abierto
+
+### Control en Bucle Cerrado
+
+### Cinemática del Piero
+#### MCI
+#### MCD
+#### Odometría
+#### Control del modelo (Simulación o Hardware)
+
+### Control de orientación
+
+
+## Modelos para salir de clase
+
+### Salir de clase con Signal Builder
+
+### Salir de clase con Waypoints y Matlab Function
+
+### Salir de clase con Waypoints
+
+### Salir de clase con Waypoints y evitando obstáculos
