@@ -163,7 +163,7 @@ En el caso de la intermitencia, colocamos un bloque Switch para diferenciar los 
 ## Motores
 Para el modelado de los motores se han creado dos módulos, uno para cada rueda. El diagrama utilizado es el siguiente:
 <h1></h1>
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/blob/main/assets/145780818/8d34e817-8291-469b-b118-1f2cb301e092" alt="Modulo MotorsG31">
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf" alt="Modulo MotorsG31">
 
 Cada uno de los circuitos cuenta con tres digital output: uno para ir hacia delante, otro que va hacia detrás y un enable que lo habilita.
 
