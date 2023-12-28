@@ -4,7 +4,7 @@
 - [Montaje](#Montaje)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Calibración de los sensores](#calibración-de-los-sensores)
-  - [Señalización usando LEDS](#Señalizacion-usando-leds)
+  - [Señalización usando LEDS](#Senalizacion-usando-LEDS)
   - [Motores](#Motores)
   - [Controlador reactivo](#controlador-reactivo)
   - [Encoders de los motores](#encoders-de-los-motores)
@@ -137,7 +137,7 @@ El diagrama implementado en SIMULINK es el siguiente:
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/02b28af8-1ccb-43de-bb8e-fce66550cf24)
 
-### Señalización usando LEDS
+### Senalizacion usando LEDS
 Para la implementación de un sistema de señalización adecuado que defina claramente los estados en los que se encuentra el Piero, haremos uso del siguiente diagrama: 
 <table>
     <tr>
@@ -158,7 +158,7 @@ Para la implementación de un sistema de señalización adecuado que defina clar
 <p>  
 Esto lo implementaremos mediante el siguiente diagrama de SIMULINK, que será un Subsystem que tendrá como entrada un dato binario de 4 bits.
 </p>
-<h1>Lib -> Senalizacion</h1>
+<h1></h1>
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4f1f3c4a-bff1-4af8-9e05-58c12ab89261" alt="Módulo Senalizacion">
 
 <br>Colocamos para cada bit un bloque BitWise y un Boolean, los cuales nos permiten examinar y utilizar el valor de ese bit.
