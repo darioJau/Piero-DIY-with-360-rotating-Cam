@@ -352,7 +352,10 @@ Vemos entonces, que se ha corregido el error en la orientación haciendo el mism
 ### Salir de clase con Waypoints y evitando obstáculos
 
 
-### Resumen de enlaces a todos los videos
+
+## Resumen de enlaces a todos los videos
+
+**** Editar estos enlaces, grabar los videos que falten y escribir los que ya están repartidos por el MD
 
  Piero moviéndose en línea recta con poca desviación en 3 metros
  
