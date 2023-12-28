@@ -4,7 +4,6 @@
 - [Montaje](#Montaje)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Calibración de los sensores](#calibración-de-los-sensores)
-    - [Sensores de distancia Sonar](#sensores-de-distancia-sonar)
   - [Señalización usando LEDS](#Señalizacion-usando-leds)
   - [Motores](#Motores)
   - [Controlador reactivo](#controlador-reactivo)
@@ -199,6 +198,7 @@ Como se ovserva en la primera fotografía, la velocidad de las ruedas aumenta ha
 Un pequeño video demostrativo del piero con el control en bucle abierto nos ilustra como no corrrige la trayectoria si no la velodidad de la rueda:
 
 [![Video demostratvo ControlBA](https://img.youtube.com/vi/OU3vdd7K3cA/0.jpg)](https://www.youtube.com/watch?v=OU3vdd7K3cA)
+
 Como cabe de esperar, el piero andará en linea recta a $2 m/s$ y no reaccionará a las perturbaciones corrigiendo la trayectoria sino que volverá a la velocidad establecida en la referencia.
 
 En este modelo podemos ver dos subsistemas:
@@ -253,10 +253,55 @@ Una vez se ha probado el modelo de forma experimental y con cambios en la orient
 
 
 ### Cinemática del Piero
-#### MCI
-#### MCD
+
+A continuación se describe el modelo de la cinemática a implementar en el Piero DIY. Será el que aparece en la siguiente imagen y se describe a continuación:
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/8c8f249f-d5ca-49ed-9fab-76d8c7ced6d5)
+
+Como entrada, en el esquema se están metiendo 2 constantes que son la velocidad lineal en $m/s$ y la velocidad angular en $rad/s$.
+Esto es lo que se trata de lograr con este modelo: conseguir que velocidades lineales y angulares sean interpretadas y reproducidas en nuestro piero que sólo entiende de velocidad de las ruedas por separado
+
+Para lograr esto, tendremos que aplicar un modelo cinematico tanto antes como despues del control de velocidad de las ruedas.
+
+Por tanto, los subsistemas que se han utilizado en este caso son:
+#### PieroCV
+Se trata de un control de velocidad como el que ya hemos hemos implementado anteriormente, usando el bucle cerrado para poder reaccionar ante perturbaciones.
+El subsistema es:
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/0e6e9f09-4c8f-4698-9a6a-d80b247cbca2)
+
+Y toma la referencia de velocidad de la rueda izquierda y derecha para realizar el control.
+
+#### MCI: Modelo Cinemático Inverso
+Antes del control le aplicaremos el jacobiano inverso para convertir la velocidad cartesiana local en la velocidad de avance de las ruedas.
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/a890f444-3b41-4a40-b2cd-9183587718e0)
+
+#### MCD: Modelo Cinemático Directo
+Después del control le aplicaremos un modelo cinemático con el jacobiano directo para convertir la velocidad de las ruedas en velocidad cartesiana local.
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/5ed33e1e-624c-4c96-9f86-0ef2fc2e2b96)
+
+Nota: Para la matriz de los jacobianos necesitamos un parámetro del piero, la distancia entre los ejes de las ruedas que es $d = 0.22 m$
+
 #### Odometría
+Por último, calculamos la odometría de tal forma que, por ejemplo para la rotación de un ángulo $\alpha$ sobre el eje $Z$ se hará:
+
+$$\dot{X} = V_x \cdot cos\left(\alpha\right) - V_y \cdot sen\left(\alpha\right)$$
+
+$$\dot{Y} = V_x \cdot sen\left(\alpha\right) - V_y \cdot cos\left(\alpha\right)$$
+
+
+Y nos quedaría algo así:
+
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/62d3cd18-0fbb-458d-ba00-890007d819ee)
+
 #### Control del modelo (Simulación o Hardware)
+
+Si ponemos como constantes de entrada:
+  - Velocidad lineal: $0.2 m/s$
+  - Velocidad angular: $\frac{\pi}{5} rad/s$
+
+Y hacemos la simulación (durante unos 5 segundos), monitoreando el robot real, obtenemos lo que esperamos, el robot anda hacia adelante y gira a la izquierda, describiendo la siguiente trayectoria con la odometría:
+![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/50d40c8c-64dd-4f17-9ef3-ba5dc9d295b8)
+
 
 ### Control de orientación
 
