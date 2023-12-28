@@ -326,22 +326,20 @@ Teniendo este modelo, vamos a ver si podemos corregir algo del posible error que
 Para ello, haremos que el Piero de 10 vueltas sobre sí mismo (para ver el error acumulado ya que, en una sola vuelta, no sería suficiente error) poniendo la velocidad lineal a $v = 0 m/s$ y lel error en orientación a $20\pi$ que equivaldría a 10 vueltas completas.
 
 Si en la realidad da menos de 10 vueltas, hay que bajar la d porque el sistema cree que ha recorrido más espacio cuando no lo ha hecho y si se para antes de tiempo, hay que subir ligeramente la d
-En nuestro caso, como se observa en el siguiente video se ha quedado corto, así que habría que aumetar el valor de la distancia entre ruedas. 
+En nuestro caso, como se observa en el siguiente video se ha quedado corto, le ha faltado más de una vuelta, así que habría que aumetar el valor de la distancia entre ruedas. 
 
 [![Video demostratvo 10 Vueltas Incompletas](https://img.youtube.com/vi/_kR8HMQxs_Y/0.jpg)](https://www.youtube.com/watch?v=_kR8HMQxs_Y)
 
 
-Tras probar varias veces, acabamos dando las 10 vueltas exactas (como se aprecia en el vídeo y finalmente el valor que tomamos es de $d = 0.226 m$
+Tras probar varias veces, acabamos dando las 10 vueltas exactas (como se aprecia en el vídeo y finalmente el valor que tomamos es de $d = 0.2275 m$
 
-[![Video demostratvo 10 Vueltas Completas](https://img.youtube.com/vi//0.jpg)](https://www.youtube.com/watch?v=)
+[![Video demostratvo 10 Vueltas Completas](https://img.youtube.com/vi/Sdw2mhJyUDc/0.jpg)](https://www.youtube.com/watch?v=Sdw2mhJyUDc)
 
 
-Sin error
+Vemos entonces, que se ha corregido el error en la orientación haciendo el mismo giro de 90 grados.
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/fc4331ba-b43a-4ac8-94e9-22b0e5fccfe9)
  
 
-
-****  Falta hacer el giro de 10 vueltas para corregir la $d = 0.22...$
 
 ## Modelos para salir de clase
 
