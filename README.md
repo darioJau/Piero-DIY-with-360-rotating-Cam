@@ -4,7 +4,7 @@
 - [Montaje](#Montaje)
 - [Programación del Piero-DIY](#programación-del-piero-DIY)
   - [Calibración de los sensores](#calibración-de-los-sensores)
-  - [Señalización usando LEDS](#Senalizacion-usando-leds)
+  - [Señalización usando LEDS](#Senalizacion-usando-LEDS)
   - [Motores](#Motores)
   - [Controlador reactivo](#controlador-reactivo)
   - [Encoders de los motores](#encoders-de-los-motores)
