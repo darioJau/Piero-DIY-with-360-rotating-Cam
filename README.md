@@ -358,8 +358,7 @@ A continuación se detallarán una serie de modelos que proporcionarán al Piero
 
 %![image]()
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-luis-robotic/assets/145780818/a4b503e6-efd0-4b83-80ff-f7ff7b994fdb" alt="SignalBuilder">
-
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1b6e65d1-6949-432e-a8db-7e9187f3466e" alt="SignalBuilder">
 
 
 
