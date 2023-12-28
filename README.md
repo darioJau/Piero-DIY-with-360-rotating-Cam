@@ -237,7 +237,7 @@ En este caso, el piero andará en linea recta a $2 m/s$ pero sí reaccionará a 
 
 Así, probando los resultados, vemos que si lo ejecutamos y nos oponemos al movimiento de una rueda, el PID hace que se recupere y continúe en la dirección que iba.
 
-<img src="[https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/089d7717-55d5-4a5f-96c2-af797030ae6f)" alt="Modulo MotorsG31">
+<img src="[https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/089d7717-55d5-4a5f-96c2-af797030ae6f)" alt="image">
 
 
 
@@ -353,8 +353,12 @@ Vemos entonces, que se ha corregido el error en la orientación haciendo el mism
 
 
 ## Modelos para salir de clase
-
+A continuación se detallarán una serie de modelos que proporcionarán al Piero las actuaciones necesarias para conseguir seguir una trayectoria predefinida. Han sido creados para comprobar la versatilidad que ofrece SIMULINK para realizar dicha tarea y así poder comparar para ver qué modelo se adapta mejor.
 ### Salir de clase con Signal Builder
+
+%![image]()
+
+<img src="[https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/089d7717-55d5-4a5f-96c2-af797030ae6f](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/738b03ea-2812-4b2e-b33b-3de0ecbeb06d))" alt="SignalBuilder">
 
 ### Salir de clase con Waypoints y Matlab Function
 
