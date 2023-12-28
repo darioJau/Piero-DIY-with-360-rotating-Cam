@@ -137,7 +137,7 @@ El diagrama implementado en SIMULINK es el siguiente:
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/02b28af8-1ccb-43de-bb8e-fce66550cf24)
 
-### Senalización usando LEDS
+### Senalizacion usando LEDS
 Para la implementación de un sistema de señalización adecuado que defina claramente los estados en los que se encuentra el Piero, haremos uso del siguiente diagrama: 
 <table>
     <tr>
