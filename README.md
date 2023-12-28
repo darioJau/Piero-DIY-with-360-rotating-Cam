@@ -318,7 +318,6 @@ Es importante que el PID tenga límites en la saturación. En este caso le hemos
 
 Por ejemplo, si ejecutamos la simulación en el piero y monitoreamos un cambio de orientación de $0$ a $\frac{\pi}{2} rad$, observamos que el controlador actúa hasta que se ha logrado establecer el ángulo en $90^o$.
 
-Con error
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/9b61556a-605e-4908-90f5-8be980611a3c)
 
 Teniendo este modelo, vamos a ver si podemos corregir algo del posible error que se puede cometer por la medida de la distancia entre ejes de forma manual (que establecimos previamente en $d = 0.22 m$).
@@ -337,6 +336,7 @@ Tras probar varias veces, acabamos dando las 10 vueltas exactas (como se aprecia
 
 
 Vemos entonces, que se ha corregido el error en la orientación haciendo el mismo giro de 90 grados.
+
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/fc4331ba-b43a-4ac8-94e9-22b0e5fccfe9)
  
 
