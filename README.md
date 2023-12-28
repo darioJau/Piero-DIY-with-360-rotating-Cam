@@ -358,7 +358,10 @@ A continuación se detallarán una serie de modelos que proporcionarán al Piero
 
 %![image]()
 
-<img src="[https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/089d7717-55d5-4a5f-96c2-af797030ae6f](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/738b03ea-2812-4b2e-b33b-3de0ecbeb06d))" alt="SignalBuilder">
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-luis-robotic/assets/145780818/a4b503e6-efd0-4b83-80ff-f7ff7b994fdb" alt="SignalBuilder">
+
+
+
 
 ### Salir de clase con Waypoints y Matlab Function
 
