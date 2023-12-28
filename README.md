@@ -143,14 +143,16 @@ Para la implementación de un sistema de señalización adecuado que defina clar
     <tr>
         <th>Verde</th>
         <th>Azul</th>
+        <th>Amarillo</th>
         <th>Rojo</th>
-        <th>Rojo parpadeante</th>
+        <th>Verde parpadeante</th>
     </tr>
     <tr>
         <td>Sin Obstaculo</td>
         <td>Obstaculo Derecha</td>
         <td>Obstaculo Izquierda</td>
         <td>Obstaculo Ambos Lados</td>
+        <td>Obstaculo aproximandose</td>
     </tr>
 </table>
 <p>  
@@ -177,6 +179,13 @@ Cada uno de los circuitos cuenta con tres digital output: uno para ir hacia dela
 
 El siguiente segmento presenta el desarrollo de un nuevo programa destinado a capacitar al robot Piero para detectar y evitar obstáculos mediante el uso de los sensores ubicados en la parte delantera. El programa actúa sobre los motores responsables del movimiento de las ruedas para modificar la dirección del robot y sortear obstáculos de manera efectiva.
 La implementación de este programa se basa en tres modelos trabajados previamente: el Modelado de Motores, el Modelado de Sensores y el Modelado de Señalización. Estos modelos proporcionan la base necesaria para que el Piero pueda reconocer obstáculos a través de sus sensores y tomar decisiones en tiempo real para evitar colisiones.
+
+#### Alertas
+El sistema creado implementa los cinco estados definidos anteriormente, donde por la entrada recibiremos el valor medido en metros de los sensores izquierdo y derecho. Lo pasaremos a centímetros y lo evaluamos para sacar la salida deseada.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-luis-robotic/assets/145780818/a4b503e6-efd0-4b83-80ff-f7ff7b994fdb" alt="Leds">
+
+
 
 ### Encoders de los motores
 
