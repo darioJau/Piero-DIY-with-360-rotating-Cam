@@ -16,6 +16,7 @@
   - [Salir de clase con Signal Builder](#salir-de-clase-con-signal-builder)
   - [Salir de clase con Matlab Function](#salir-de-clase-con-matlab-function)
   - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
+  - [Salir de clase con StateFlow](#Salir-de-clase-con-StateFlow)
   - [Salir de clase con Waypoints y evitando obstáculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
 
 ## Introducción
