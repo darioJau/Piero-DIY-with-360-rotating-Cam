@@ -14,7 +14,7 @@
   - [Control de orientación](#control-de-orientación)
 - [Modelos para salir de clase](#modelos-para-salir-de-clase)
   - [Salir de clase con Signal Builder](#salir-de-clase-con-signal-builder)
-  - [Salir de clase con Waypoints y Matlab Function](#salir-de-clase-con-waypoints-y-matlab-function)
+  - [Salir de clase con Waypoints y Matlab Function](#salir-de-clase-con-matlab-function)
   - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
   - [Salir de clase con Waypoints y evitando obstáculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
 
