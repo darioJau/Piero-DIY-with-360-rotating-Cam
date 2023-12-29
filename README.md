@@ -14,8 +14,9 @@
   - [Control de orientación](#control-de-orientación)
 - [Modelos para salir de clase](#modelos-para-salir-de-clase)
   - [Salir de clase con Signal Builder](#salir-de-clase-con-signal-builder)
-  - [Salir de clase con Waypoints y Matlab Function](#salir-de-clase-con-waypoints-y-matlab-function)
+  - [Salir de clase con Matlab Function](#salir-de-clase-con-matlab-function)
   - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
+  - [Salir de clase con StateFlow](#Salir-de-clase-con-StateFlow)
   - [Salir de clase con Waypoints y evitando obstáculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
 
 ## Introducción
@@ -362,12 +363,45 @@ A continuación se detallarán una serie de modelos que proporcionarán al Piero
 
 
 
-### Salir de clase con Waypoints y Matlab Function
+### Salir de clase con Matlab Function
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/050cedc0-b910-4944-a2e1-df82eafc195c" alt="waypoints">
+
+El modelo Salir de clase con Matlaf Function hace uso del bloque Matlab function, al que se le ha programado un pequeño algoritmo de Pure Pursuit.
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4e4621c6-b4a8-4e7d-8144-92bdf4e2b5fb" alt="MF">
+
+Este bloque tomaraá como entrada la matriz de puntos predefinida y la posición X,Y del robot. Como salida, se encarga de proporcionar valores de velocidad lineal y angular adecuados para seguir la trayectoria.
 
 ### Salir de clase con Waypoints
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/b4c160ad-f425-46e8-9102-0a1d6c8ce836" alt="waypoints">
+El modelo de Salir de clase con Waypoints hace uso del bloque Pure Pursuit. Este algoritmo es muy utilizados en sistemas de conducción autónoma, donde se proporciona al robot comandos de velocidad lineal y angular para perseguir una trayectoria predefinida con puntos x e y.
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/5bafc313-3558-472d-afe9-73bbd95c5f0e" alt="XY">
+Como podemos observar en la simulación, el modelo es preciso.
 
-### Salir de clase con Waypoints y evitando obstáculos
+### Salir de clase con StateFlow
 
+El objetivo de este modelo es que el PIERO salga de clase por sí mismo a partir de unas consignas de velocidad lineal y velocidad angular deseada, en este caso la principal diferencia respecto al resto de salir de clase es el uso de la herramienta State Flow.
+
+Stateflow es una herramienta de modelado de sistemas dinámicos desarrollada por MathWorks. Permite al usuario diseñar, simular y analizar sistemas de tiempo discreto y continuo mediante el uso de diagramas de estados y transiciones, funciones y tablas de eventos. Es utilizado principalmente en aplicaciones de control, automatización, procesamiento de señales y análisis de sistemas complejos. Stateflow se integra con otros productos de MathWorks, como Simulink, para proporcionar una solución completa de modelado y simulación.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/ff36d2b6-d3ed-40da-9ab6-f428130c4653" alt="waypoints">
+
+A la entrada del diagrama tenemos la odometría de nuestro robot; y, sabiendo su posición, podemos enviar comandos de velocidad para cubrir distancias específicas tanto lineales como angulares. De esta manera programamos la trayectoria completa deseada.
+
+### Salir de clase con Waypoints y evitando obstaculos
+
+El objetivo de este proyecto es permitir que el robot, denominado PIERO, salga de clase de manera autónoma utilizando consignas de velocidad lineal y angular deseadas. Este proceso se llevará a cabo mediante una función de Matlab que implementa el modelo PurePursuit. Además, se busca incorporar la capacidad de esquivar obstáculos, y para ello se ha elegido utilizar la herramienta State Flow.
+
+Es importante destacar que tanto Matlab como State Flow han sido empleados en modelos anteriores, por lo que se comprende su funcionamiento y modo de operación. La diferencia principal radica en la integración de la información proporcionada por cada herramienta, así como en la implementación específica para evitar obstáculos utilizando State Flow.
+
+El modelo de State Flow seleccionado para la tarea de esquivar obstáculos será crucial en la autonomía de PIERO, permitiéndole tomar decisiones dinámicas en tiempo real para sortear cualquier impedimento que pueda surgir en su camino.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/a7dfca92-cdbe-4b5e-b8e5-088e661849ef" alt="waypoints">
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c2c71c0-deac-4633-977e-0677a1029566" alt="waypoints">
+
+Al simular el Piero con la trayectoria predefinida obtenemos la siguiente gráfica:
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/607454fc-9f49-40c1-8b2e-258069078baf" alt="waypoints">
+Como se puede apreciar en la gráfica, el control implementado es bastante preciso y nos permite realizar trayectorias específicas esquivando obstáculos con gran habilidad. Es por eso que el método implementado en el Piero será este.
 
 
 ## Resumen de enlaces a todos los videos
