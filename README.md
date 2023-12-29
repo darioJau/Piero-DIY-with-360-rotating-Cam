@@ -399,7 +399,9 @@ El modelo de State Flow seleccionado para la tarea de esquivar obstáculos será
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c2c71c0-deac-4633-977e-0677a1029566" alt="waypoints">
 
+Al simular el Piero con la trayectoria predefinida obtenemos la siguiente gráfica:
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/607454fc-9f49-40c1-8b2e-258069078baf" alt="waypoints">
+Como se puede apreciar en la gráfica, el control implementado es bastante preciso y nos permite realizar trayectorias específicas esquivando obstáculos con gran habilidad. Es por eso que el método implementado en el Piero será este.
 
 
 ## Resumen de enlaces a todos los videos
