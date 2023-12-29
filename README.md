@@ -387,7 +387,7 @@ Stateflow es una herramienta de modelado de sistemas dinámicos desarrollada por
 
 A la entrada del diagrama tenemos la odometría de nuestro robot; y, sabiendo su posición, podemos enviar comandos de velocidad para cubrir distancias específicas tanto lineales como angulares. De esta manera programamos la trayectoria completa deseada.
 
-### Salir de clase con Waypoints y evitando obstáculos
+### Salir de clase con Waypoints y evitando obstaculos
 
 El objetivo de este proyecto es permitir que el robot, denominado PIERO, salga de clase de manera autónoma utilizando consignas de velocidad lineal y angular deseadas. Este proceso se llevará a cabo mediante una función de Matlab que implementa el modelo PurePursuit. Además, se busca incorporar la capacidad de esquivar obstáculos, y para ello se ha elegido utilizar la herramienta State Flow.
 
