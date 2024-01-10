@@ -187,13 +187,19 @@ La implementación de este programa se basa en tres modelos trabajados previamen
 #### Alertas
 El sistema creado implementa los cinco estados definidos anteriormente, donde por la entrada recibiremos el valor medido en metros de los sensores izquierdo y derecho. Lo pasaremos a centímetros y lo evaluamos para sacar la salida deseada.
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-luis-robotic/assets/145780818/a4b503e6-efd0-4b83-80ff-f7ff7b994fdb" alt="Leds">
-
 
 
 ### Encoders de los motores
 
 **** Explicar encoders de los motores + foto del modelo 
+Los motores de nuestro Piero cuentan con encoders que nos permiten medir la velocidad de giro del motor. Para ello primero debemos crear un bloque S-FunctionBuilder con la configuración que nos dice el fabricante y, sobre todo, asegurarnos de que los pines de los encoders izquierdo y derecho quedan declarados.
+
+La primera ganancia es simplemente un ajuste para que los dos encoders midan lo mismo. La segunda ganancia realiza un cambio de unidades, multiplicando por "pi", por el radio de la rueda y dividido por el número de pulsos que nos da el encoder al dar una vuelta completa a la rueda. De esta manera conseguimos expresar dicha medida en metros. Por último se deriva la medida de la posición para obtener la velocidad.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/8f24cb93-f026-4d16-a5a4-f16e8a644dac" alt="Modulo MotorsG31">
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/cf152fdc-ae32-4e6d-b124-4294320e3a0e" alt="Modulo MotorsG31">
+
 
 ### Control en Bucle Abierto
 
