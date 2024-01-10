@@ -241,6 +241,8 @@ El modelo que usaremos para llevar a cabo este comportamiento será el siguiente
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ae0872d5-3f0d-410d-9d9f-f5233ce47bba)
 
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/cf152fdc-ae32-4e6d-b124-4294320e3a0e" alt="Modulo MotorsG31">
+
 
 En este caso, el piero andará en linea recta a $2 m/s$ pero sí reaccionará a las perturbaciones corrigiendo la trayectoria y volverá a la velocidad lineal del robot establecida en la referencia ya que acumula el posible error en cada rueda.
 
@@ -261,6 +263,9 @@ Los subsistemas que se utilizan en este caso son el mismo que anteriormente para
 El controlador en este caso lo haremos con un PID para cada rueda en lugar de las look-up tables.
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/5e2ddc12-4408-42b7-8187-fe91d34d2f7f)
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/5e2ddc12-4408-42b7-8187-fe91d34d2f7f" alt="Modulo MotorsG31">
+
 
 Utilizo el PID tunner para establecer un tiempo de establecimiento de $1 segundo$ aproximadamente ya que así será suficientemente rápido y el tiempo de subida puede ser del orden de medio segundo, la sobreoscilación será $0%$. Hago lo mismo en los dos PID.
 
