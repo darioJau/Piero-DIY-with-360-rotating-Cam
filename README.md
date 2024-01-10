@@ -191,7 +191,6 @@ El sistema creado implementa los cinco estados definidos anteriormente, donde po
 
 ### Encoders de los motores
 
-**** Explicar encoders de los motores + foto del modelo 
 Los motores de nuestro Piero cuentan con encoders que nos permiten medir la velocidad de giro del motor. Para ello primero debemos crear un bloque S-FunctionBuilder con la configuración que nos dice el fabricante y, sobre todo, asegurarnos de que los pines de los encoders izquierdo y derecho quedan declarados.
 
 La primera ganancia es simplemente un ajuste para que los dos encoders midan lo mismo. La segunda ganancia realiza un cambio de unidades, multiplicando por "pi", por el radio de la rueda y dividido por el número de pulsos que nos da el encoder al dar una vuelta completa a la rueda. De esta manera conseguimos expresar dicha medida en metros. Por último se deriva la medida de la posición para obtener la velocidad.
