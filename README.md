@@ -229,6 +229,7 @@ Este subsistema se volverá a utilizar en cada uno de los modelos ya que se enca
 Esto se hace con un "Variador de fuente" que elige entre el piero real o Hardware (si se está monitoreando en tiempo real con el piero conectado al equipo) o bien con el modelo del comportamiento de nuestros motores.
 
 Este modelo de comportamiento se obtiene de la siguiente manera:
+
 Con el Piero conectado, creamos una señal de pulsos mediante signal builder y la simulamos, de manera que el robot realiza las acciones de arranque y parada varias veces. Esta gráfica la almacenamos en una tabla de datos para cada rueda. 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/fbcb6a5d-9e75-4a36-8cba-b464e431baff" alt="">
 
@@ -238,6 +239,20 @@ Con el Piero conectado, creamos una señal de pulsos mediante signal builder y l
 
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/c09b0444-f086-4a47-8509-42cbd664a6d0)
+
+Obtenidos estos datos, los cargamos en "System Identification", un software que te permite analizar las funciones y elaborar funciones de transferencia ajustadas a nuestros datos.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/ea677cfa-8091-4b7f-a4a9-48cacf15adf3" alt="Modulo MotorsG31">
+
+
+Una vez aquí, calculamos diferentes funciones de transferencia, en función del número de polos y ceros
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/861486c9-0ebd-4122-9b92-3a98ac148c49" alt="Modulo MotorsG31">
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/50cea3ef-ebd2-48eb-921e-d40a8652eff3" alt="Modulo MotorsG31">
+Como vemos, aquí se representan las gráficas elegidas, en base a lo bien que se ajustan con con el modelo de entrada.
+Analizando los datos obtenidos llegamos a la siguiente conclusión:
+
+La que mejor se ajusta, es la de dos polos y un cero. Podríamos haber elegido esta pero el resultado sería muy sensible a alteraciones. Nosotros queremos un sistema estable y gradual, que no cambie bruscamente, por eso elegiremos la TFi10, de un polo. Esta nos dará buenos resultados y como observaremos más adelante en los videos, tenemos un control estable.
 
 
 ### Control en Bucle Cerrado
@@ -379,8 +394,6 @@ Vemos entonces, que se ha corregido el error en la orientación haciendo el mism
 ## Modelos para salir de clase
 A continuación se detallarán una serie de modelos que proporcionarán al Piero las actuaciones necesarias para conseguir seguir una trayectoria predefinida. Han sido creados para comprobar la versatilidad que ofrece SIMULINK para realizar dicha tarea y así poder comparar para ver qué modelo se adapta mejor.
 ### Salir de clase con Signal Builder
-
-%![image]()
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1b6e65d1-6949-432e-a8db-7e9187f3466e" alt="SignalBuilder">
 
