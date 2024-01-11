@@ -23,6 +23,7 @@
   - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
   - [Salir de clase con StateFlow](#Salir-de-clase-con-StateFlow)
   - [Salir de clase con Waypoints y evitando obstáculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
+- [Resumen de enlaces a todos los videos](#resumen-de-enlaces-a-todos-los-videos)
 
 ## Introducción
 
@@ -93,7 +94,9 @@ plot(distancia_teorica,distancia_medida_R)
 legend("Recta ideal", "Recta experimental (L)", "Recta experimental (R)",'Location','northwest')
 hold off
 ```
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/e5c5df32-51ff-439d-8a15-0922776a0231)
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/e5c5df32-51ff-439d-8a15-0922776a0231" alt="Gráfica rectas ideales vs experimentales">
+
 
 Ahora, realizamos una regresión lineal para obtener la ecuacion de ajuste de los datos experimentales de cada sensor.
 
@@ -124,8 +127,7 @@ legend("Recta ideal","Recta experimental ajustada (L)", "Recta experimental ajus
 hold off
 ```
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/cfebd189-7147-4493-818c-2ce952ab4edd)
-
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780545/cfebd189-7147-4493-818c-2ce952ab4edd" alt="Gráfica rectas de regresión">
  
 Para ajustar la recta del sensor a la teórica, realizaremos un ajuste de 0 y de ganancia:
 
@@ -141,7 +143,7 @@ Como resultado en la salida obtendremos una representación de la distancia medi
 
 El diagrama implementado en SIMULINK es el siguiente:
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/02b28af8-1ccb-43de-bb8e-fce66550cf24)
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/02b28af8-1ccb-43de-bb8e-fce66550cf24" alt="Modelo Sonars">
 
 ### Senalizacion usando LEDS
 Para la implementación de un sistema de señalización adecuado que defina claramente los estados en los que se encuentra el Piero, haremos uso del siguiente diagrama: 
@@ -176,7 +178,7 @@ El video demostrativo de la señalización led de los obstáculos es el siguient
 
 ### Motores
 Para el modelado de los motores se han creado dos módulos, uno para cada rueda. El diagrama utilizado es el siguiente:
-<h1></h1>
+
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf" alt="Modulo MotorsG31">
 
 Cada uno de los circuitos cuenta con tres digital output: uno para ir hacia delante, otro que va hacia detrás y un enable que lo habilita.
@@ -190,9 +192,12 @@ Cada uno de los circuitos cuenta con tres digital output: uno para ir hacia dela
 El siguiente segmento presenta el desarrollo de un nuevo programa destinado a capacitar al robot Piero para detectar y evitar obstáculos mediante el uso de los sensores ubicados en la parte delantera. El programa actúa sobre los motores responsables del movimiento de las ruedas para modificar la dirección del robot y sortear obstáculos de manera efectiva.
 La implementación de este programa se basa en tres modelos trabajados previamente: el Modelado de Motores, el Modelado de Sensores y el Modelado de Señalización. Estos modelos proporcionan la base necesaria para que el Piero pueda reconocer obstáculos a través de sus sensores y tomar decisiones en tiempo real para evitar colisiones.
 
+**** Meter el control reactivo (modelo y grabar video)
+
 #### Alertas
 El sistema creado implementa los cinco estados definidos anteriormente, donde por la entrada recibiremos el valor medido en metros de los sensores izquierdo y derecho. Lo pasaremos a centímetros y lo evaluamos para sacar la salida deseada.
 
+**** completar este apartado
 
 
 ### Encoders de los motores
@@ -250,6 +255,7 @@ Esto se hace con un "Variador de fuente" que elige entre el piero real o Hardwar
 Este modelo de comportamiento se obtiene de la siguiente manera:
 
 Con el Piero conectado, creamos una señal de pulsos mediante signal builder y la simulamos, de manera que el robot realiza las acciones de arranque y parada varias veces. Esta gráfica la almacenamos en una tabla de datos para cada rueda. 
+
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/fbcb6a5d-9e75-4a36-8cba-b464e431baff" alt="">
 
 
@@ -268,6 +274,7 @@ Una vez aquí, calculamos diferentes funciones de transferencia, en función del
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/861486c9-0ebd-4122-9b92-3a98ac148c49" alt="Modulo MotorsG31">
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/50cea3ef-ebd2-48eb-921e-d40a8652eff3" alt="Modulo MotorsG31">
+
 Como vemos, aquí se representan las gráficas elegidas, en base a lo bien que se ajustan con con el modelo de entrada.
 Analizando los datos obtenidos llegamos a la siguiente conclusión:
 
@@ -282,8 +289,8 @@ El modelo que usaremos para llevar a cabo este comportamiento será el siguiente
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ae0872d5-3f0d-410d-9d9f-f5233ce47bba)
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/cf152fdc-ae32-4e6d-b124-4294320e3a0e" alt="Modulo MotorsG31">
-
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ae0872d5-3f0d-410d-9d9f-f5233ce47bba" alt="Modulo Test_ControlBC">
+**** Cambiar esta imagen igual que la de arriba (a 4.1 m en el switch)
 
 En este caso, el piero andará en linea recta a $2 m/s$ pero sí reaccionará a las perturbaciones corrigiendo la trayectoria y volverá a la velocidad lineal del robot establecida en la referencia ya que acumula el posible error en cada rueda.
 
@@ -307,8 +314,6 @@ El controlador en este caso lo haremos con un PID para cada rueda en lugar de la
 
 <img width="1329" alt="Captura de pantalla 2024-01-11 a las 12 38 49" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/44897250-a131-4083-9d43-cc6bf0a8cdb4">
 
-
-https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/937c0020-d35d-43f5-b1ec-568c81beadc2
 
 Utilizo el PID tunner para establecer un tiempo de establecimiento de $1 segundo$ aproximadamente ya que así será suficientemente rápido y el tiempo de subida puede ser del orden de medio segundo, la sobreoscilación será $0%$. Hago lo mismo en los dos PID.
 
@@ -416,20 +421,27 @@ A continuación se detallarán una serie de modelos que proporcionarán al Piero
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1b6e65d1-6949-432e-a8db-7e9187f3466e" alt="SignalBuilder">
 
-
+**** Añadir explicación
 
 ### Salir de clase con Matlab Function
+
+**** Añadir más explicación
+
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/050cedc0-b910-4944-a2e1-df82eafc195c" alt="waypoints">
 
 El modelo Salir de clase con Matlaf Function hace uso del bloque Matlab function, al que se le ha programado un pequeño algoritmo de Pure Pursuit.
+
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4e4621c6-b4a8-4e7d-8144-92bdf4e2b5fb" alt="MF">
 
 Este bloque tomaraá como entrada la matriz de puntos predefinida y la posición X,Y del robot. Como salida, se encarga de proporcionar valores de velocidad lineal y angular adecuados para seguir la trayectoria.
 
 ### Salir de clase con Waypoints
+
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/b4c160ad-f425-46e8-9102-0a1d6c8ce836" alt="waypoints">
 El modelo de Salir de clase con Waypoints hace uso del bloque Pure Pursuit. Este algoritmo es muy utilizados en sistemas de conducción autónoma, donde se proporciona al robot comandos de velocidad lineal y angular para perseguir una trayectoria predefinida con puntos x e y.
+
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/5bafc313-3558-472d-afe9-73bbd95c5f0e" alt="XY">
+
 Como podemos observar en la simulación, el modelo es preciso.
 
 ### Salir de clase con StateFlow
@@ -445,7 +457,7 @@ A la entrada del diagrama tenemos la odometría de nuestro robot; y, sabiendo su
   
 
 Todos los videos de salir de clase con los diferentes métodos devuelven resultados muy similares pero, después de probarlos todos y ajustarlos para que funcionen lo mejor posible, el que mejor resultados nos ha dado es en el que mayor control de la trayectoria y, por tanto, mejores resultados nos ha dado ha sido en el que usamos el bloque "Pure Pursuit" de la librería de Navigation Toolbox. 
-El vídeo del funcionamiento de este modelo preparado para que el piero salga de clase (sin evitar obstáculos, es el siguiente:
+El vídeo del funcionamiento de este modelo preparado para que el piero salga de clase (sin evitar obstáculos), es el siguiente:
 
 [![Video demostratvo Salir de clase sin obstáculos](https://img.youtube.com/vi/2jOPRIdVmmE/0.jpg)](https://www.youtube.com/watch?v=2jOPRIdVmmE)
 
