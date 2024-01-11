@@ -219,13 +219,6 @@ Este es un video demostrativo de el Piero evitando los obstáculos y con la señ
 
 [![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/VB6QkytTeBs/0.jpg)](https://www.youtube.com/watch?v=VB6QkytTeBs)
 
-
-#### Alertas
-El sistema creado implementa los cinco estados definidos anteriormente, donde por la entrada recibiremos el valor medido en metros de los sensores izquierdo y derecho. Lo pasaremos a centímetros y lo evaluamos para sacar la salida deseada.
-
-**** completar este apartado
-
-
 ### Encoders de los motores
 
 Los motores de nuestro Piero cuentan con encoders que nos permiten medir la velocidad de giro del motor. Para ello primero debemos crear un bloque S-FunctionBuilder con la configuración que nos dice el fabricante y, sobre todo, asegurarnos de que los pines de los encoders izquierdo y derecho quedan declarados.
