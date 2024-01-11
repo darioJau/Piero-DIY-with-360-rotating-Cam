@@ -167,11 +167,12 @@ Esto lo implementaremos mediante el siguiente diagrama de SIMULINK, que será un
 <h1></h1>
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/5e31ccb4-4b6c-4003-90c9-43a7af413e64" alt="Módulo Senalizacion">
 
-
-
-
 <br>Colocamos para cada bit un bloque BitWise y un Boolean, los cuales nos permiten examinar y utilizar el valor de ese bit.
 En el caso de la intermitencia, colocamos un bloque Switch para diferenciar los casos de Intermitencia (tren de pulsos) o Estable (bloque constante).
+
+El video demostrativo de la señalización led de los obstáculos es el siguiente:
+
+[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/zqo0bPWz1SM/0.jpg)](https://www.youtube.com/watch?v=zqo0bPWz1SM)
 
 ### Motores
 Para el modelado de los motores se han creado dos módulos, uno para cada rueda. El diagrama utilizado es el siguiente:
@@ -203,7 +204,20 @@ La primera ganancia es simplemente un ajuste para que los dos encoders midan lo 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/8f24cb93-f026-4d16-a5a4-f16e8a644dac" alt="Modulo MotorsG31">
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/cf152fdc-ae32-4e6d-b124-4294320e3a0e" alt="Modulo MotorsG31">
+**** Cambiar esta imagen poniendo en la condición del switch 4.1 en lugar de 4
 
+
+#### Calibración de los encoders
+
+La calibración de los encoders se ha realizado en dos etapas:
+
+ - Se han medido el número de interrupciones que se detectan en el motor al darle 10 vueltas completas a las ruedas y se ha dividido entre 10 para obtener el número de interrupciones por vuelta. Así obtenemos una media de las interrupciones por vuelta en lugar de medir sólo una vuelta puesto que conseguiremos un valor más real.
+
+ - Se han realizado numerosas pruebas hasta conseguir que el robot vaya en línea recta y recorra la distancia exacta que le hemos indicado. Para ello, se modifican ligeramente las ganancias del número de interrupciones que se lee de cada rueda hasta conseguir una trayectoria lo más recta posible. Además para conseguir la distancia exacta se puede retocar (muy mínimamente el número de interrupciones por vuelta. Esto se puede observar en las dós imágenes superiores. En la primera de ellas ya se ha ajustado los valores de las ganancias de cada rueda para que vaya en linea recta, sin embargo la distancia que recorre no es del todo precisa. Por eso se hace un modelo de prueba como el de la segunda imagen en el que el robot recorre la distancia de 10 baldosas de la clase del laboratorio que corresponde a $4,1 m$. Haciendo varias pruebas se queda ajustado hasta obtener un valor de 1496 interrupciones por vuelta.
+
+Podemos ver el resultado de la calibración en el siguiente video:
+
+[![Video demostratvo Calibración encoders](https://img.youtube.com/vi/kBWgP7cRCLU/0.jpg)](https://www.youtube.com/watch?v=kBWgP7cRCLU)
 
 ### Control en Bucle Abierto
 
@@ -428,6 +442,13 @@ Stateflow es una herramienta de modelado de sistemas dinámicos desarrollada por
 
 A la entrada del diagrama tenemos la odometría de nuestro robot; y, sabiendo su posición, podemos enviar comandos de velocidad para cubrir distancias específicas tanto lineales como angulares. De esta manera programamos la trayectoria completa deseada.
 
+  
+
+Todos los videos de salir de clase con los diferentes métodos devuelven resultados muy similares pero, después de probarlos todos y ajustarlos para que funcionen lo mejor posible, el que mejor resultados nos ha dado es en el que mayor control de la trayectoria y, por tanto, mejores resultados nos ha dado ha sido en el que usamos el bloque "Pure Pursuit" de la librería de Navigation Toolbox. 
+El vídeo del funcionamiento de este modelo preparado para que el piero salga de clase (sin evitar obstáculos, es el siguiente:
+
+[![Video demostratvo Salir de clase sin obstáculos](https://img.youtube.com/vi/2jOPRIdVmmE/0.jpg)](https://www.youtube.com/watch?v=2jOPRIdVmmE)
+
 ### Salir de clase con Waypoints y evitando obstaculos
 
 El objetivo de este proyecto es permitir que el robot, denominado PIERO, salga de clase de manera autónoma utilizando consignas de velocidad lineal y angular deseadas. Este proceso se llevará a cabo mediante una función de Matlab que implementa el modelo PurePursuit. Además, se busca incorporar la capacidad de esquivar obstáculos, y para ello se ha elegido utilizar la herramienta State Flow.
@@ -444,25 +465,49 @@ Al simular el Piero con la trayectoria predefinida obtenemos la siguiente gráfi
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/607454fc-9f49-40c1-8b2e-258069078baf" alt="waypoints">
 Como se puede apreciar en la gráfica, el control implementado es bastante preciso y nos permite realizar trayectorias específicas esquivando obstáculos con gran habilidad. Es por eso que el método implementado en el Piero será este.
 
+[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/SUVn5_DVqa4/0.jpg)](https://www.youtube.com/watch?v=SUVn5_DVqa4)
 
 ## Resumen de enlaces a todos los videos
 
 **** Editar estos enlaces, grabar los videos que falten y escribir los que ya están repartidos por el MD
 
- Piero moviéndose en línea recta con poca desviación en 3 metros
+ Piero moviéndose en línea recta con poca desviación en 4.1 metros (calibración encoders)
  
-   https://drive.google.com/file/d/1Fcg5lSjv6q5oTs9PIr2WQYbxixgjgluB/view?usp=sharing
+   [https://youtu.be/kBWgP7cRCLU](https://youtu.be/kBWgP7cRCLU)
    
- Piero cambiando de color en función de los sensores
+ Modelo de señalización de obstáculos en función de los sensores
  
-   https://drive.google.com/file/d/14OFnmPmH7kN_HsWogFRFNirAM9pgJrJD/view?usp=sharing
+   [https://youtu.be/zqo0bPWz1SM](https://youtu.be/zqo0bPWz1SM)
    
  Calibración de sensores, con varias medidas y su valor
  
-   https://drive.google.com/file/d/1OfUWI7DMAnQXR0VtjLFuoKIydAzxXi-r/view?usp=sharing
+   ???
    
  Piero evitando paredes (en un rincón y cerca de la puerta)
  
-   https://drive.google.com/file/d/1iNn1hf_GFbhXEMNcsurv0YRRfCokeF8o/view?usp=sharing
+   ???
 
+ Demostración del control en bucle abierto
+ 
+   [https://youtu.be/OU3vdd7K3cA](https://youtu.be/OU3vdd7K3cA)
 
+ Demostración del control en bucle cerrado
+ 
+   [https://youtu.be/-JRCHIIsw-Q](https://youtu.be/-JRCHIIsw-Q)
+
+ Cinemática
+ 
+   [https://youtu.be/YsWtWxGMNfY](https://youtu.be/YsWtWxGMNfY)
+
+ Calibración del control de orientación:
+ 
+   - 10 Vueltas incompletas:  [https://youtu.be/_kR8HMQxs_Y](https://youtu.be/_kR8HMQxs_Y)
+   - 10 vueltas completas:    [https://youtu.be/Sdw2mhJyUDc](https://youtu.be/Sdw2mhJyUDc)
+
+ Saliendo de clase sin que haya ningún obstáculo
+ 
+   [https://youtu.be/2jOPRIdVmmE](https://youtu.be/2jOPRIdVmmE)
+   
+ Saliendo de clase evitando los obstáculos
+ 
+   [https://youtu.be/SUVn5_DVqa4](https://youtu.be/SUVn5_DVqa4)
