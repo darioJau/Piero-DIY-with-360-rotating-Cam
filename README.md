@@ -18,9 +18,8 @@
       - [Alertas](#alertas)
     - [Encoders de los motores](#encoders-de-los-motores)
       - [Calibración de los encoders](#calibración-de-los-encoders)
-      - [Calibración de los motores (zona muerta)](#Calibracion-de-los-motores)
     - [Control en Bucle Abierto](#control-en-bucle-abierto)
-      - [ControladorBA](#controladorba)
+      - [Calibración de los motores (zona muerta)](#Calibracion-de-los-motores)
       - [Piero](#piero)
     - [Control en Bucle Cerrado](#control-en-bucle-cerrado)
       - [ControladorBC](#controladorbc)
@@ -245,15 +244,7 @@ Podemos ver el resultado de la calibración en el siguiente video:
 
 [![Video demostratvo Calibración encoders](https://img.youtube.com/vi/kBWgP7cRCLU/0.jpg)](https://www.youtube.com/watch?v=kBWgP7cRCLU)
 
-### Calibracion de los motores
-Es necesario comprobar cómo se comportan nuestros motores según la tensión de alimentación que les llega, por eso hemos realizado un sencillo test en el que aumentamos y disminuimos gradualmente la tensión y reflejamos el movimiento de las ruedas en una gráfica.
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2dee992c-61a0-4afb-aea9-4d6a189a0a1d" alt="">
-La señal de referencia en este caso es una rampa ascendente y descendente. Al simular obtenemos el siguiente resultado:
-
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/c74d9f3f-710c-42cb-bb8a-e74b358812c0" alt="">
-
-Como podemos observar, exite un amplio rango de valores de tensión en los que no se produce movimiento en los motores. Este rango es mayor para el arranque que para la parada.
 
 ### Control en Bucle Abierto
 
@@ -278,10 +269,25 @@ Como cabe de esperar, el piero andará en linea recta a $2 m/s$ y no reaccionar�
 En este modelo podemos ver dos subsistemas:
 
 #### ControladorBA
+#### Calibracion de los motores
+Es necesario comprobar cómo se comportan nuestros motores según la tensión de alimentación que les llega, por eso hemos realizado un sencillo test en el que aumentamos y disminuimos gradualmente la tensión y reflejamos el movimiento de las ruedas en una gráfica.
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ef5752fc-e72f-4e75-bed5-873314410e70)
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2dee992c-61a0-4afb-aea9-4d6a189a0a1d" alt="">
+La señal de referencia en este caso es una rampa ascendente y descendente. Al simular obtenemos el siguiente resultado:
 
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/c74d9f3f-710c-42cb-bb8a-e74b358812c0" alt="">
 
+Como podemos observar, exite un amplio rango de valores de tensión en los que no se produce movimiento en los motores. Este rango es mayor para el arranque que para la parada.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ef5752fc-e72f-4e75-bed5-873314410e70" alt="">
+
+Estos datos se almacenarán en una serie de archivos:
+
+![Alt text](image-1.png)
+
+De estos datos, obtendremos las Look-Up Table
+
+![Alt text](image-2.png)
 #### Piero
 
 Este subsistema se volverá a utilizar en cada uno de los modelos ya que se encarga de decidir si se simulará el modelo del piero o se enviará el control de PWM a los motores tomarán los valores leidos por los encoders. 
