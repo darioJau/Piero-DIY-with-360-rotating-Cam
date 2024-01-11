@@ -290,17 +290,16 @@ Los subsistemas que se utilizan en este caso son el mismo que anteriormente para
 
 El controlador en este caso lo haremos con un PID para cada rueda en lugar de las look-up tables.
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/5e2ddc12-4408-42b7-8187-fe91d34d2f7f)
 
-
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/937c0020-d35d-43f5-b1ec-568c81beadc2)
+<img width="1329" alt="Captura de pantalla 2024-01-11 a las 12 38 49" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/44897250-a131-4083-9d43-cc6bf0a8cdb4">
 
 
 https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/937c0020-d35d-43f5-b1ec-568c81beadc2
 
 Utilizo el PID tunner para establecer un tiempo de establecimiento de $1 segundo$ aproximadamente ya que así será suficientemente rápido y el tiempo de subida puede ser del orden de medio segundo, la sobreoscilación será $0%$. Hago lo mismo en los dos PID.
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/2a103ff2-9904-4b69-9606-1041e38a22ad)
+
+<img width="1110" alt="Captura de pantalla 2024-01-11 a las 12 40 32" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/b4191440-04fd-46bd-9f76-4999e9003c8d">
 
 
 Una vez se ha probado el modelo de forma experimental y con cambios en la orientación, hemos observado que el controlador tenía cierta sobreoscilación al intentar alcanzar una trayectoria dada. Por tanto se ha vuelto a ajustar, con el PID tunner, reduciendo un poco la ganancia derivativa entre otras cosas y se concluye usando el controlador PID con los parámetros que aparecen en la siguiente captura para ambas ruedas puesto que los resultados son muy buenos.
@@ -347,7 +346,7 @@ $$\dot{Y} = V_x \cdot sen\left(\alpha\right) - V_y \cdot cos\left(\alpha\right)$
 
 Y nos quedaría algo así:
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/62d3cd18-0fbb-458d-ba00-890007d819ee)
+<img width="874" alt="Captura de pantalla 2024-01-11 a las 12 41 13" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/c2776407-95d7-4846-96fb-2a8994a67ee4">
 
 #### Control del modelo (Simulación o Hardware)
 
@@ -368,7 +367,7 @@ Por último, para conseguir que nuestro piero sea completamente controlable, ten
 
 Añadiremos, entonces, un control de orientación para que, en lugar de tener la velocidad lineal y angular como constantes, la velocidad angular esté controlada mediante un controlador (PID) que actua sobre el error en la orientación medida del modelo real del Piero. El modelo sería similar al anterior pero con este controlador para lograr el cambio de orientación
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/73d47b47-15f5-4033-a24b-75a145a859fd)
+<img width="1438" alt="Captura de pantalla 2024-01-11 a las 12 42 05" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/85fe43db-f5d6-417c-95a9-e9f9e9ea928a">
 
 Es importante que el PID tenga límites en la saturación. En este caso le hemos puesto el límite superior en 3 y el inferior en -3. Estos valores dependen de los motores y de la velocidad máxima que querremos. En este caso se limitará a unos 0.3 m/s
 
