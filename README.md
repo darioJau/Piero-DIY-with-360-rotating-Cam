@@ -275,7 +275,8 @@ En este caso, el piero andará en linea recta a $2 m/s$ pero sí reaccionará a 
 
 Así, probando los resultados, vemos que si lo ejecutamos y nos oponemos al movimiento de una rueda, el PID hace que se recupere y continúe en la dirección que iba.
 
-<img src="[https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c0d6d2e-4e8e-4f5f-a0fa-08b1ba6b4bdf](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica23-darioJau/assets/145780547/089d7717-55d5-4a5f-96c2-af797030ae6f)" alt="image">
+
+<img width="830" alt="Captura de pantalla 2024-01-11 a las 12 33 06" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/9d158c56-cb4a-4ebf-be3a-267c519f9953">
 
 
 
