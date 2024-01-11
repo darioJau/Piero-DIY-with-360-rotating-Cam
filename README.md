@@ -192,6 +192,10 @@ El video demostrativo de la señalización led de los obstáculos es el siguient
 
 [![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/zqo0bPWz1SM/0.jpg)](https://www.youtube.com/watch?v=zqo0bPWz1SM)
 
+Este modelo se incluirá en los demás en forma de subsustema:
+
+ <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/cc004879-1fb3-482c-a949-3d1242f1a82d" alt="Módulo Senalizacion">
+
 ### Motores
 
 Para el modelado de los motores se han creado dos módulos, uno para cada rueda. El diagrama utilizado es el siguiente:
@@ -521,7 +525,10 @@ El modelo de State Flow seleccionado para la tarea de esquivar obstáculos será
 
 En esta imagen se implementa el control 
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c2c71c0-deac-4633-977e-0677a1029566" alt="waypoints">
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/a9048b6c-49a8-46a2-856e-9935f7bb182f" alt="waypoints">
+El bloque Sonars, nos da las medidas de los sensores, y según esta, se señalizará con el bloque de señalización. Por último, se realizará el control reactivo mediante el StateFlow.
+El otro circuito que se muestra, es el propio modelo de movimiento del Piero, controlado esta vez por el modulo pure pursuit, con la trayectoria predefinida en la matriz.
+
 
 Al simular el Piero con la trayectoria predefinida obtenemos la siguiente gráfica:
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/607454fc-9f49-40c1-8b2e-258069078baf" alt="waypoints">
