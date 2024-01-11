@@ -472,12 +472,14 @@ Vemos entonces, que se ha corregido el error en la orientación haciendo el mism
 
 ## Modelos para salir de clase
 A continuación se detallarán una serie de modelos que proporcionarán al Piero las actuaciones necesarias para conseguir seguir una trayectoria predefinida. Han sido creados para comprobar la versatilidad que ofrece SIMULINK para realizar dicha tarea y así poder comparar para ver qué modelo se adapta mejor.
+
 ### Salir de clase con Signal Builder
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1b6e65d1-6949-432e-a8db-7e9187f3466e" alt="SignalBuilder">
 
-**** Añadir explicación
-
+Este modelo es el primero que se implementó, y el más rudimentario. 
+Directamente a través de un generador de señales (Signal Builder), se crea una para la velocidad lineal y otra para la angular. Esta gráfica representa el valor de salida que estará enviando a lo largo del tiempo.
+Es muy complicado definir una trayectoria precisa mediante este método, ya que habrá que calcular para cada movimiento, el tiempo ddurante el que se tiene que aplicar cada comando para recorrer la distancia o girar el ángulo deseado.
 ### Salir de clase con Matlab Function
 
 **** Añadir más explicación
