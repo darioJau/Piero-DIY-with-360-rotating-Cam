@@ -19,7 +19,7 @@
     - [Encoders de los motores](#encoders-de-los-motores)
       - [Calibración de los encoders](#calibración-de-los-encoders)
     - [Control en Bucle Abierto](#control-en-bucle-abierto)
-      - [ControladorBA](#controladorba)
+      - [Calibración de los motores (zona muerta)](#Calibracion-de-los-motores)
       - [Piero](#piero)
     - [Control en Bucle Cerrado](#control-en-bucle-cerrado)
       - [ControladorBC](#controladorbc)
@@ -69,7 +69,9 @@ Por último, realizamos todas las conexiones como se precisa en este esquema:
 
 ### Esquemas de montaje
 
-**** [ ESQUEMA DE CONEXIONADO ]
+
+<img width="1131" alt="Captura de pantalla 2024-01-11 a las 20 21 14" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ba9d9e06-7b70-46c2-bee3-36e802767a1d">
+
 
 
 
@@ -190,6 +192,10 @@ El video demostrativo de la señalización led de los obstáculos es el siguient
 
 [![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/zqo0bPWz1SM/0.jpg)](https://www.youtube.com/watch?v=zqo0bPWz1SM)
 
+Este modelo se incluirá en los demás en forma de subsustema:
+
+ <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/cc004879-1fb3-482c-a949-3d1242f1a82d" alt="Módulo Senalizacion">
+
 ### Motores
 
 Para el modelado de los motores se han creado dos módulos, uno para cada rueda. El diagrama utilizado es el siguiente:
@@ -202,9 +208,16 @@ Cada uno de los circuitos cuenta con tres digital output: uno para ir hacia dela
 ### Controlador reactivo
 
 El siguiente segmento presenta el desarrollo de un nuevo programa destinado a capacitar al robot Piero para detectar y evitar obstáculos mediante el uso de los sensores ubicados en la parte delantera. El programa actúa sobre los motores responsables del movimiento de las ruedas para modificar la dirección del robot y sortear obstáculos de manera efectiva.
-La implementación de este programa se basa en tres modelos trabajados previamente: el Modelado de Motores, el Modelado de Sensores y el Modelado de Señalización. Estos modelos proporcionan la base necesaria para que el Piero pueda reconocer obstáculos a través de sus sensores y tomar decisiones en tiempo real para evitar colisiones.
 
-**** Meter el control reactivo (modelo y grabar video)
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/db7bfaa5-7404-4fde-829f-861235db5b0f" alt="Modelo Evita obstáculos">
+
+
+La implementación de este programa se basa en tres modelos trabajados previamente: el Modelado de Motores, el Modelado de Sensores y el Modelado de Señalización. Estos modelos proporcionan la base necesaria para que el Piero pueda reconocer obstáculos a través de sus sensores y tomar decisiones en tiempo real para evitar colisiones con objetos y paredes.
+
+Este es un video demostrativo de el Piero evitando los obstáculos y con la señalización correspondiente:
+
+[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/VB6QkytTeBs/0.jpg)](https://www.youtube.com/watch?v=VB6QkytTeBs)
+
 
 #### Alertas
 El sistema creado implementa los cinco estados definidos anteriormente, donde por la entrada recibiremos el valor medido en metros de los sensores izquierdo y derecho. Lo pasaremos a centímetros y lo evaluamos para sacar la salida deseada.
@@ -220,9 +233,8 @@ La primera ganancia es simplemente un ajuste para que los dos encoders midan lo 
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/8f24cb93-f026-4d16-a5a4-f16e8a644dac" alt="Modulo MotorsG31">
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/cf152fdc-ae32-4e6d-b124-4294320e3a0e" alt="Modulo MotorsG31">
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/01548b05-ef15-4d31-b643-52391af77809" alt="Modulo MotorsG31">
 
-**** Cambiar esta imagen poniendo en la condición del switch 4.1 en lugar de 4
 
 
 #### Calibración de los encoders
@@ -236,6 +248,8 @@ La calibración de los encoders se ha realizado en dos etapas:
 Podemos ver el resultado de la calibración en el siguiente video:
 
 [![Video demostratvo Calibración encoders](https://img.youtube.com/vi/kBWgP7cRCLU/0.jpg)](https://www.youtube.com/watch?v=kBWgP7cRCLU)
+
+
 
 ### Control en Bucle Abierto
 
@@ -260,8 +274,31 @@ Como cabe de esperar, el piero andará en linea recta a $2 m/s$ y no reaccionar�
 En este modelo podemos ver dos subsistemas:
 
 #### ControladorBA
+#### Calibracion de los motores
+Es necesario comprobar cómo se comportan nuestros motores según la tensión de alimentación que les llega, por eso hemos realizado un sencillo test en el que aumentamos y disminuimos gradualmente la tensión y reflejamos el movimiento de las ruedas en una gráfica.
 
-![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ef5752fc-e72f-4e75-bed5-873314410e70)
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2dee992c-61a0-4afb-aea9-4d6a189a0a1d" alt="">
+La señal de referencia en este caso es una rampa ascendente y descendente. Al simular obtenemos el siguiente resultado:
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/c74d9f3f-710c-42cb-bb8a-e74b358812c0" alt="">
+
+Como podemos observar, exite un amplio rango de valores de tensión en los que no se produce movimiento en los motores. Este rango es mayor para el arranque que para la parada.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ef5752fc-e72f-4e75-bed5-873314410e70" alt="">
+
+Estos datos se almacenarán en una serie de archivos:
+
+
+![image-1](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/d84d853e-8eda-47d1-8078-085c99c2e39f)
+
+De estos datos, obtendremos las Look-Up Table
+
+![image-2](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1fa9ce01-8a78-47a9-9b59-d0d8f7b1cd59)
+
+
+Mostramos un pequeño video demostrativo de como se han calibrado los motores en el que se observa también la zona muerta de los mismos:
+
+[![Video demostratvo calibración de motores y zona muerta](https://img.youtube.com/vi/Tgh0nENfXSM/0.jpg)](https://www.youtube.com/watch?v=Tgh0nENfXSM)
 
 
 #### Piero
@@ -305,9 +342,8 @@ El modelo que usaremos para llevar a cabo este comportamiento será el siguiente
 
 ![image](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ae0872d5-3f0d-410d-9d9f-f5233ce47bba)
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ae0872d5-3f0d-410d-9d9f-f5233ce47bba" alt="Modulo Test_ControlBC">
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/01548b05-ef15-4d31-b643-52391af77809" alt="Modulo MotorsG31">
 
-**** Cambiar esta imagen igual que la de arriba (a 4.1 m en el switch)
 
 En este caso, el piero andará en linea recta a $2 m/s$ pero sí reaccionará a las perturbaciones corrigiendo la trayectoria y volverá a la velocidad lineal del robot establecida en la referencia ya que acumula el posible error en cada rueda.
 
@@ -493,7 +529,12 @@ El modelo de State Flow seleccionado para la tarea de esquivar obstáculos será
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/a7dfca92-cdbe-4b5e-b8e5-088e661849ef" alt="waypoints">
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2c2c71c0-deac-4633-977e-0677a1029566" alt="waypoints">
+En esta imagen se implementa el control 
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/a9048b6c-49a8-46a2-856e-9935f7bb182f" alt="waypoints">
+El bloque Sonars, nos da las medidas de los sensores, y según esta, se señalizará con el bloque de señalización. Por último, se realizará el control reactivo mediante el StateFlow.
+El otro circuito que se muestra, es el propio modelo de movimiento del Piero, controlado esta vez por el modulo pure pursuit, con la trayectoria predefinida en la matriz.
+
 
 Al simular el Piero con la trayectoria predefinida obtenemos la siguiente gráfica:
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/607454fc-9f49-40c1-8b2e-258069078baf" alt="waypoints">
@@ -503,7 +544,7 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
 
 ## Resumen de enlaces a todos los videos
 
-**** Editar estos enlaces, grabar los videos que falten y escribir los que ya están repartidos por el MD
+
 
  Piero moviéndose en línea recta con poca desviación en 4.1 metros (calibración encoders)
  
@@ -513,13 +554,13 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
  
    [https://youtu.be/zqo0bPWz1SM](https://youtu.be/zqo0bPWz1SM)
    
- Calibración de sensores, con varias medidas y su valor
+ Calibración de los motores y zona muerta
  
-   ???
+   [https://youtu.be/Tgh0nENfXSM](https://youtu.be/Tgh0nENfXSM)
    
  Piero evitando paredes (en un rincón y cerca de la puerta)
  
-   ???
+   [https://youtu.be/VB6QkytTeBs](https://youtu.be/VB6QkytTeBs)
 
  Demostración del control en bucle abierto
  
