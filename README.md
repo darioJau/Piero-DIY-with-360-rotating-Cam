@@ -1,3 +1,7 @@
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2b7c165c-97e6-45af-8866-0b2e0786c36c" alt="" width="500" align="center">
+
+
 # PieroDIYProject Grupo 31 - Laboratorio de Robótica 2023-24
 
 - [Introducción](#Introducción)
