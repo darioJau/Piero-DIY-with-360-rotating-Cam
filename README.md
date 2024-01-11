@@ -18,6 +18,7 @@
       - [Alertas](#alertas)
     - [Encoders de los motores](#encoders-de-los-motores)
       - [Calibración de los encoders](#calibración-de-los-encoders)
+      - [Calibración de los motores (zona muerta)](#Calibracion-de-los-motores-(zona-muerta))
     - [Control en Bucle Abierto](#control-en-bucle-abierto)
       - [ControladorBA](#controladorba)
       - [Piero](#piero)
@@ -244,7 +245,7 @@ Podemos ver el resultado de la calibración en el siguiente video:
 
 [![Video demostratvo Calibración encoders](https://img.youtube.com/vi/kBWgP7cRCLU/0.jpg)](https://www.youtube.com/watch?v=kBWgP7cRCLU)
 
-### Calibración de los motores (zona muerta)
+### Calibracion de los motores (zona muerta)
 Es necesario comprobar cómo se comportan nuestros motores según la tensión de alimentación que les llega, por eso hemos realizado un sencillo test en el que aumentamos y disminuimos gradualmente la tensión y reflejamos el movimiento de las ruedas en una gráfica.
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2dee992c-61a0-4afb-aea9-4d6a189a0a1d" alt="">
