@@ -202,9 +202,16 @@ Cada uno de los circuitos cuenta con tres digital output: uno para ir hacia dela
 ### Controlador reactivo
 
 El siguiente segmento presenta el desarrollo de un nuevo programa destinado a capacitar al robot Piero para detectar y evitar obstáculos mediante el uso de los sensores ubicados en la parte delantera. El programa actúa sobre los motores responsables del movimiento de las ruedas para modificar la dirección del robot y sortear obstáculos de manera efectiva.
-La implementación de este programa se basa en tres modelos trabajados previamente: el Modelado de Motores, el Modelado de Sensores y el Modelado de Señalización. Estos modelos proporcionan la base necesaria para que el Piero pueda reconocer obstáculos a través de sus sensores y tomar decisiones en tiempo real para evitar colisiones.
 
-**** Meter el control reactivo (modelo y grabar video)
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/db7bfaa5-7404-4fde-829f-861235db5b0f" alt="Modelo Evita obstáculos">
+
+
+La implementación de este programa se basa en tres modelos trabajados previamente: el Modelado de Motores, el Modelado de Sensores y el Modelado de Señalización. Estos modelos proporcionan la base necesaria para que el Piero pueda reconocer obstáculos a través de sus sensores y tomar decisiones en tiempo real para evitar colisiones con objetos y paredes.
+
+Este es un video demostrativo de el Piero evitando los obstáculos y con la señalización correspondiente:
+
+[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi//0.jpg)](https://www.youtube.com/watch?v=)
+
 
 #### Alertas
 El sistema creado implementa los cinco estados definidos anteriormente, donde por la entrada recibiremos el valor medido en metros de los sensores izquierdo y derecho. Lo pasaremos a centímetros y lo evaluamos para sacar la salida deseada.
