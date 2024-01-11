@@ -34,9 +34,9 @@
     - [Salir de clase con Signal Builder](#salir-de-clase-con-signal-builder)
     - [Salir de clase con Matlab Function](#salir-de-clase-con-matlab-function)
     - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
-    - [Salir de clase con StateFlow](#salir-de-clase-con-stateflow)
+    - [Salir de clase con StateFlow](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
     - [Salir de clase con Waypoints y evitando obstaculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
-  - [Implementación del Proyecto opcional](#resumen-de-enlaces-a-todos-los-videos)
+  - [Implementación del Proyecto opcional](#implementación-del-proyecto-opcional)
   - [Resumen de enlaces a todos los videos](#resumen-de-enlaces-a-todos-los-videos)
 
 ## Introducción
