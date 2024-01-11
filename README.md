@@ -531,7 +531,7 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
 
 ## Resumen de enlaces a todos los videos
 
-**** Editar estos enlaces, grabar los videos que falten y escribir los que ya están repartidos por el MD
+
 
  Piero moviéndose en línea recta con poca desviación en 4.1 metros (calibración encoders)
  
@@ -547,7 +547,7 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
    
  Piero evitando paredes (en un rincón y cerca de la puerta)
  
-   ???
+   [https://youtu.be/VB6QkytTeBs](https://youtu.be/VB6QkytTeBs)
 
  Demostración del control en bucle abierto
  
