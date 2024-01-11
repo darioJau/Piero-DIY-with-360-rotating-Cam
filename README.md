@@ -295,6 +295,12 @@ De estos datos, obtendremos las Look-Up Table
 
 ![image-2](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1fa9ce01-8a78-47a9-9b59-d0d8f7b1cd59)
 
+
+Mostramos un pequeño video demostrativo de como se han calibrado los motores en el que se observa también la zona muerta de los mismos:
+
+[![Video demostratvo calibración de motores y zona muerta](https://img.youtube.com/vi/Tgh0nENfXSM/0.jpg)](https://www.youtube.com/watch?v=Tgh0nENfXSM)
+
+
 #### Piero
 
 Este subsistema se volverá a utilizar en cada uno de los modelos ya que se encarga de decidir si se simulará el modelo del piero o se enviará el control de PWM a los motores tomarán los valores leidos por los encoders. 
@@ -548,9 +554,9 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
  
    [https://youtu.be/zqo0bPWz1SM](https://youtu.be/zqo0bPWz1SM)
    
- Calibración de sensores, con varias medidas y su valor
+ Calibración de los motores y zona muerta
  
-   ???
+   [https://youtu.be/Tgh0nENfXSM](https://youtu.be/Tgh0nENfXSM)
    
  Piero evitando paredes (en un rincón y cerca de la puerta)
  
