@@ -480,13 +480,18 @@ A continuación se detallarán una serie de modelos que proporcionarán al Piero
 Este modelo es el primero que se implementó, y el más rudimentario. 
 Directamente a través de un generador de señales (Signal Builder), se crea una para la velocidad lineal y otra para la angular. Esta gráfica representa el valor de salida que estará enviando a lo largo del tiempo.
 Es muy complicado definir una trayectoria precisa mediante este método, ya que habrá que calcular para cada movimiento, el tiempo ddurante el que se tiene que aplicar cada comando para recorrer la distancia o girar el ángulo deseado.
+
 ### Salir de clase con Matlab Function
 
-**** Añadir más explicación
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/050cedc0-b910-4944-a2e1-df82eafc195c" alt="waypoints">
 
 El modelo Salir de clase con Matlaf Function hace uso del bloque Matlab function, al que se le ha programado un pequeño algoritmo de Pure Pursuit.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/e253f826-9fc4-4400-aa83-c610d824c052" alt="MF">
+
+Como podemos ver en esta imagen ampliada, la trayectoria pasa directamente a la variable "camino", la posición x e y vienen de la odometría, y la i, representa la iteración por donde va respecto a la trayectoria.
+
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4e4621c6-b4a8-4e7d-8144-92bdf4e2b5fb" alt="MF">
 
