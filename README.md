@@ -244,6 +244,13 @@ Podemos ver el resultado de la calibración en el siguiente video:
 
 [![Video demostratvo Calibración encoders](https://img.youtube.com/vi/kBWgP7cRCLU/0.jpg)](https://www.youtube.com/watch?v=kBWgP7cRCLU)
 
+### Calibración de los motores (zona muerta)
+Es necesario comprobar cómo se comportan nuestros motores según la tensión de alimentación que les llega, por eso hemos realizado un sencillo test en el que aumentamos y disminuimos gradualmente la tensión y reflejamos el movimiento de las ruedas en una gráfica.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2dee992c-61a0-4afb-aea9-4d6a189a0a1d" alt="">
+La señal de referencia en este caso es una rampa ascendente y descendente. Al simular obtenemos el siguiente resultado:
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/c74d9f3f-710c-42cb-bb8a-e74b358812c0" alt="">
+
 ### Control en Bucle Abierto
 
 Necesitamos que nuestro piero sea capaza de seguir una referencia de velocidad en cada una de las ruedas. Para ello se diseña un modelo de control en bucle abierto como el siguiente:
