@@ -36,6 +36,7 @@
     - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
     - [Salir de clase con StateFlow](#salir-de-clase-con-stateflow)
     - [Salir de clase con Waypoints y evitando obstaculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
+  - [Implementación del Proyecto opcional](#resumen-de-enlaces-a-todos-los-videos)
   - [Resumen de enlaces a todos los videos](#resumen-de-enlaces-a-todos-los-videos)
 
 ## Introducción
@@ -542,6 +543,15 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
 
 [![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/SUVn5_DVqa4/0.jpg)](https://www.youtube.com/watch?v=SUVn5_DVqa4)
 
+
+## Implementación del Proyecto opcional
+
+
+
+
+
+
+
 ## Resumen de enlaces a todos los videos
 
 
@@ -590,3 +600,7 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
  Saliendo de clase evitando los obstáculos
  
    [https://youtu.be/SUVn5_DVqa4](https://youtu.be/SUVn5_DVqa4)
+   
+ Demostración del proyecto opcional
+ 
+   [https://youtu.be/6Vd62COOqGI](https://youtu.be/6Vd62COOqGI)
