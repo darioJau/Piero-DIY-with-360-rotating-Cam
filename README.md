@@ -250,7 +250,10 @@ Es necesario comprobar cómo se comportan nuestros motores según la tensión de
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2dee992c-61a0-4afb-aea9-4d6a189a0a1d" alt="">
 La señal de referencia en este caso es una rampa ascendente y descendente. Al simular obtenemos el siguiente resultado:
+
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/c74d9f3f-710c-42cb-bb8a-e74b358812c0" alt="">
+
+Como podemos observar, exite un amplio rango de valores de tensión en los que no se produce movimiento en los motores. Este rango es mayor para el arranque que para la parada.
 
 ### Control en Bucle Abierto
 
