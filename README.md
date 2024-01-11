@@ -69,7 +69,9 @@ Por último, realizamos todas las conexiones como se precisa en este esquema:
 
 ### Esquemas de montaje
 
-**** [ ESQUEMA DE CONEXIONADO ]
+
+<img width="1131" alt="Captura de pantalla 2024-01-11 a las 20 21 14" src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780547/ba9d9e06-7b70-46c2-bee3-36e802767a1d">
+
 
 
 
@@ -210,7 +212,7 @@ La implementación de este programa se basa en tres modelos trabajados previamen
 
 Este es un video demostrativo de el Piero evitando los obstáculos y con la señalización correspondiente:
 
-[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi//0.jpg)](https://www.youtube.com/watch?v=)
+[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/VB6QkytTeBs/0.jpg)](https://www.youtube.com/watch?v=VB6QkytTeBs)
 
 
 #### Alertas
