@@ -283,11 +283,13 @@ Como podemos observar, exite un amplio rango de valores de tensión en los que n
 
 Estos datos se almacenarán en una serie de archivos:
 
-![Alt text](image-1.png)
+
+![image-1](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/d84d853e-8eda-47d1-8078-085c99c2e39f)
 
 De estos datos, obtendremos las Look-Up Table
 
-![Alt text](image-2.png)
+![image-2](https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1fa9ce01-8a78-47a9-9b59-d0d8f7b1cd59)
+
 #### Piero
 
 Este subsistema se volverá a utilizar en cada uno de los modelos ya que se encarga de decidir si se simulará el modelo del piero o se enviará el control de PWM a los motores tomarán los valores leidos por los encoders. 
