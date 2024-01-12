@@ -881,7 +881,7 @@ void loop() {
   }
 }
 ```
-El código completo puede verse [AQUÍ](CodigosArduino/Mando_G31/Mando_G31.ino)
+El código completo puede verse [AQUÍ](CodigosArduino/Mando_GR31/Mando_GR31.ino)
 ### Implementación de la cámara y su sistema de movimiento
 #### Diseño del circuito
 
@@ -1168,7 +1168,7 @@ void loop() {
   }
 }
 ```
-El código completo puede verse [AQUÍ](CodigosArduino/CameraServer_G31/CameraServer_G31.ino)
+El código completo puede verse [AQUÍ](CodigosArduino/CameraServer_GR31/CameraServer_GR31.ino)
 
 A continuación, se adjunta el código del Arduino Nano.
 
@@ -1270,7 +1270,7 @@ void loop() {
   }
 }
 ```
-El código completo puede verse [AQUÍ](CodigosArduino/ControlMotor_G31/ControlMotor_G31.ino).
+El código completo puede verse [AQUÍ](CodigosArduino/ControlMotor_GR31/ControlMotor_GR31.ino).
 #### Diseño 3D de la carcasa de la cámara y su sistema de movimiento
 
 Para alojar la cámara y todos los elementos que componen su sistema de movimiento, se ha usado la herramienta Fusion 360 de Autodesk. El diseño está compuesto de cuatro partes principales.
