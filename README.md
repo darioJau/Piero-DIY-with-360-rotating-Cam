@@ -1,8 +1,4 @@
 
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/2b7c165c-97e6-45af-8866-0b2e0786c36c" alt="" width="500" align="center">
-<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/a702b89e-79a5-488b-9d34-d5a51400ce09" alt="" width="500" align="center">
-
-
 # PieroDIYProject Grupo 31 - Laboratorio de Robótica 2023-24
 
 - [PieroDIYProject Grupo 31 - Laboratorio de Robótica 2023-24](#pierodiyproject-grupo-31---laboratorio-de-robótica-2023-24)
@@ -603,4 +599,5 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
    
  Demostración del proyecto opcional
  
-   [https://youtu.be/6Vd62COOqGI](https://youtu.be/6Vd62COOqGI)
+   - Piero con cámara rotatoria:  [https://youtu.be/6Vd62COOqGI](https://youtu.be/6Vd62COOqGI)
+   - Cámara controlada por mando: [https://youtu.be/HZeDFFgzWQ8](https://youtu.be/HZeDFFgzWQ8)
