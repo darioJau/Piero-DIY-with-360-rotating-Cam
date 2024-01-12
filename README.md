@@ -32,7 +32,15 @@
     - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
     - [Salir de clase con StateFlow](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
     - [Salir de clase con Waypoints y evitando obstaculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
-  - [Implementación del Proyecto opcional](#implementación-del-proyecto-opcional)
+  - [Implementación del Proyecto opcional](#parte-extra-implementación-de-una-video-cámara-y-de-un-mando-para-controlar-la-orientación-de-la-dicha-cámara-y-la-posición-del-piero)
+    - [Introducción](#introducción-1)
+    - [Programas utilizados](#programas-utilizados)
+    - [Materiales usados](#materiales-usados)
+    - [Implementación del mando](#implementación-del-mando)
+    - [Programación y lógica de funcionamiento](#implementación-del-mando)
+    - [Implementación de la cámara y su sistema de movimiento](#implementación-de-la-cámara-y-su-sistema-de-movimiento)
+    - [Implementación de la pasarela Wifi para el Arduino Mega 2560](#implementación-de-la-pasarela-wifi-para-el-arduino-mega-2560)
+    - [Diseño del flujo de Nodered](#diseño-del-flujo-de-nodered)
   - [Resumen de enlaces a todos los videos](#resumen-de-enlaces-a-todos-los-videos)
 
 ## Introducción
@@ -550,6 +558,13 @@ La parte extra para nuestro proyecto consiste principalmente en tres implementac
 - Uso de una pasarela Wifi para el Arduino Mega 2560, y así poder mandarle comandos de velocidad y por tanto, de posición de manera manual.
 
 - Uso de un mando para controlar tanto la orientación de la cámara como los comandos emitidos al Piero.
+
+Antes de pasar a los detalles, se muestran dos videos del funcionamiento del mismo. En el primero la cámara está siendo controlada mientras el piero explora la zona y en el segundo se controla la cámara desde el propio mando a distancia.
+
+[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/6Vd62COOqGI/0.jpg)](https://www.youtube.com/watch?v=6Vd62COOqGI)
+
+[![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/HZeDFFgzWQ8/0.jpg)](https://www.youtube.com/watch?v=HZeDFFgzWQ8)
+
   
 ### Programas utilizados
 
