@@ -1,0 +1,3559 @@
+[
+    {
+        "id": "4305a8f22f8d3ef9",
+        "type": "tab",
+        "label": "ProyectoG31",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8866cb3afb9d85fc",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "mensaje bienvenida",
+        "func": "if (msg.payload.content.substring(0, 1) != \"/\") {\n    var message = {\n        chatId: msg.payload.chatId,\n        type: \"message\",\n        content: \"Hola, soy el bot del Grupo 31 para Laboratorio de Robótica. Elige uno de los siguientes menús de acción: \\n\",\n        options: {\n            reply_markup: {\n                inline_keyboard: [\n                    [\n                        { text: 'Control Piero 🤖', callback_data: 'Control Piero' }\n                    ],\n                    [\n                        { text: 'Control Camara 📷', callback_data: 'Control Camara' }\n                    ]\n                ]\n            }\n        }\n    };\n\n    return { payload: message };\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1860,
+        "y": 320,
+        "wires": [
+            [
+                "5ec4b21ac77b0725"
+            ]
+        ]
+    },
+    {
+        "id": "36079e3659a67d38",
+        "type": "telegram receiver",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "bot": "f874f8333a9a148c",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 1600,
+        "y": 240,
+        "wires": [
+            [
+                "209901dfaadf5d37",
+                "d81b728717f96503"
+            ],
+            [
+                "8866cb3afb9d85fc"
+            ]
+        ]
+    },
+    {
+        "id": "c631126d68296bea",
+        "type": "telegram command",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "command": "/start",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "f874f8333a9a148c",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1570,
+        "y": 340,
+        "wires": [
+            [
+                "8866cb3afb9d85fc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b9308da7a3304907",
+        "type": "telegram sender",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "bot": "f874f8333a9a148c",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 3050,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "281054bcf6e53683",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "wD9IYehI",
+        "info": "",
+        "x": 1600,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1388acc6c5c8355b",
+        "type": "link in",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram Sender",
+        "links": [
+            "8e9d928d58017bb0",
+            "87994d9958ce90af",
+            "5fa30b42c06d8d80",
+            "5ec4b21ac77b0725",
+            "9f662f5df6fbcb40",
+            "2205900715595dcd",
+            "cd1c8cde450d2192",
+            "6e98b535eb93a809",
+            "324a6adc41c802f5",
+            "f05da1e28c26591a",
+            "f92e421dd404196b",
+            "41e498bfcf2cd1b9",
+            "2881f103d651d43c",
+            "20e92c90dd9eb152",
+            "03a7d514682d7a16",
+            "fba50d6b4ef4a6f4",
+            "f1688a7492df5274",
+            "545f32dd6c69b955",
+            "c95ec47a6f2dc9b7",
+            "8e55ef586b322f5e",
+            "a884a0bb4b40c183",
+            "c068133a734274c5",
+            "8415c64e01c6e4b8",
+            "908f1b4669a37d20",
+            "fd290d6ef77d6dad",
+            "934f423e4b00b61f",
+            "566a13e8b6747ed3",
+            "a7c2c6e62b6fb77c",
+            "827fe8e6ba5d91d8"
+        ],
+        "x": 2925,
+        "y": 220,
+        "wires": [
+            [
+                "b9308da7a3304907"
+            ]
+        ]
+    },
+    {
+        "id": "209901dfaadf5d37",
+        "type": "change",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "chatId",
+                "pt": "global",
+                "to": "payload.chatId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1840,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e60f0a09b7d95f7",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 1600,
+        "y": 160,
+        "wires": [
+            [
+                "209901dfaadf5d37"
+            ]
+        ]
+    },
+    {
+        "id": "5ec4b21ac77b0725",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2100,
+        "y": 320,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "519b1ee9eb4b5f69",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "TELEGRAM BOT",
+        "info": "",
+        "x": 1780,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "23085b20b5d8d098",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "control piero",
+        "func": "var message = {\n    chatId: msg.payload.chatId,\n    type: \"message\",\n    content: \"Aquí tienes todas las opciones disponibles: \\n\",\n    options: {\n        reply_markup: {\n            inline_keyboard: [\n                [\n                    { text: 'Avanzar ⬆', callback_data: 'Avanzar' }\n                ],\n                [\n                    { text: 'Girar ↪', callback_data: 'Girar Izquierda' },\n                    { text: 'Detener ✋🏻', callback_data: 'Detener' }, \n                    { text: 'Girar ↩', callback_data: 'Girar Derecha' }\n                ],\n                [\n                    { text: 'Retroceder ⬇', callback_data: 'Retroceder' }\n                ],\n                [\n                    { text: 'Cambiar funcionamiento ➿', callback_data: 'Cambiar' }\n                ],\n                [\n                    { text: 'Volver al menu de inicio 🏡', callback_data: 'Volver' }\n                ]\n            ]\n        }\n    }\n};\n\nreturn { payload: message };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2370,
+        "y": 160,
+        "wires": [
+            [
+                "f05da1e28c26591a"
+            ]
+        ]
+    },
+    {
+        "id": "f05da1e28c26591a",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2690,
+        "y": 200,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "ff4cedeb8e737799",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Control Piero",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 2070,
+        "y": 160,
+        "wires": [
+            [
+                "664b96ad9572840d"
+            ]
+        ]
+    },
+    {
+        "id": "71cb07943a3b5cb0",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Control Camara",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 2060,
+        "y": 200,
+        "wires": [
+            [
+                "fd729991136cfad0"
+            ]
+        ]
+    },
+    {
+        "id": "64479173da633a1e",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Volver",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 2110,
+        "y": 240,
+        "wires": [
+            [
+                "04b5261b370a8d23"
+            ]
+        ]
+    },
+    {
+        "id": "d1da9205b87d21fb",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "control camara",
+        "func": "var message = {\n    chatId: msg.payload.chatId,\n    type: \"message\",\n    content: \"Aquí tienes todas las opciones disponibles: \\n\",\n    options: {\n        reply_markup: {\n            inline_keyboard: [\n                [\n                    { text: 'Ver streaming 📹', callback_data: 'ver streaming' }\n                ],\n                [\n                    { text: 'Foto con flash 📸', callback_data: 'Foto con flash' },\n                    { text: 'Foto sin flash 📷', callback_data: 'Foto sin flash' }\n                ],\n                [\n                    { text: 'Última foto automática 🎞', callback_data: 'recuperar foto seguridad' },\n                    { text: 'Última foto manual 🎞', callback_data: 'recuperar foto manual' }\n                ],\n                [\n                    { text: 'Flash ON 🔦✅', callback_data: 'Encender flash' },\n                    { text: 'Flash OFF🔦🚫', callback_data: 'Apagar flash' }\n                ],\n                [\n                    { text: 'Girar ⬅️', callback_data: 'Girar izquierda' },\n                    { text: 'Stop ✋🏻', callback_data: 'Parar' },\n                    { text: 'Girar ➡️', callback_data: 'Girar derecha' },\n                    { text: 'Centrar 🧭', callback_data: 'Centrar' }\n                ],\n                [\n                    { text: 'Volver al menu de inicio 🏡', callback_data: 'Volver' }\n                ]\n            ]\n        }\n    }\n};\n\nreturn { payload: message };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2380,
+        "y": 200,
+        "wires": [
+            [
+                "f05da1e28c26591a"
+            ]
+        ]
+    },
+    {
+        "id": "298d6feeb29f8891",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Volver",
+        "func": "var accion = global.get(\"set_alarm\") ? \"Desactivar\" : \"Activar\";\nvar message = {\n    chatId: msg.payload.chatId,\n    type: \"message\",\n    content: \"Elige un menú de acción: \\n\",\n    options: {\n        reply_markup: {\n            inline_keyboard: [\n                [\n                    { text: 'Control Piero 🤖', callback_data: 'Control Piero' }\n                ],\n                [\n                    { text: 'Control Camara 📷', callback_data: 'Control Camara' }\n                ]\n            ]\n        }\n    }\n};\n\nreturn { payload: message };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2350,
+        "y": 240,
+        "wires": [
+            [
+                "f05da1e28c26591a"
+            ]
+        ]
+    },
+    {
+        "id": "04b5261b370a8d23",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Volver",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2230,
+        "y": 240,
+        "wires": [
+            [
+                "298d6feeb29f8891"
+            ]
+        ]
+    },
+    {
+        "id": "fd729991136cfad0",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Control Camara",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2230,
+        "y": 200,
+        "wires": [
+            [
+                "d1da9205b87d21fb"
+            ]
+        ]
+    },
+    {
+        "id": "664b96ad9572840d",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Control Piero",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2230,
+        "y": 160,
+        "wires": [
+            [
+                "23085b20b5d8d098"
+            ]
+        ]
+    },
+    {
+        "id": "d81b728717f96503",
+        "type": "change",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1850,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41d69c3dc7e39473",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Video en Streaming",
+        "info": "",
+        "x": 2770,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "94d7e8a119fb7043",
+        "type": "mqtt in",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP36221669107172/mando/camara",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9759da9f2078cbd1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1740,
+        "y": 1160,
+        "wires": [
+            [
+                "8d32a6407d2c2036"
+            ]
+        ]
+    },
+    {
+        "id": "5fa110f316bef2da",
+        "type": "mongodb in",
+        "z": "4305a8f22f8d3ef9",
+        "mongodb": "3a0d221932fa6fd4",
+        "name": "",
+        "collection": "fotos_auto",
+        "operation": "find",
+        "x": 2270,
+        "y": 660,
+        "wires": [
+            [
+                "7a53b5cb30f256b7",
+                "417807cd028cd732"
+            ]
+        ]
+    },
+    {
+        "id": "1a32b4f89cb14cfd",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Tomar fotos de seguridad cada cierto tiempo",
+        "info": "",
+        "x": 1670,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "93a2ea5580f62d6e",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Formato enviar foto",
+        "func": "// Almacenamos la foto obtenida\nvar photo = msg.payload;\n\n// Limpiamos el mensaje\nmsg = {};\n\n// Obtiene la fecha actual en formato ISO\nvar fechaISO = new Date().toISOString();\n\n// Formatea la fecha y la hora con dos dígitos cada uno\nvar options = {\n    day: '2-digit',\n    month: '2-digit',\n    year: 'numeric',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit',\n    hour12: false\n};\n\nvar formattedFecha = new Date().toLocaleString('es-ES', options);\n\n// Formatea la fecha y la hora según tus preferencias\nvar caption = `Foto tomada a ${formattedFecha}`;\n\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"photo\";\nmsg.payload.content = photo;\nmsg.payload.caption = caption;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2950,
+        "y": 1000,
+        "wires": [
+            [
+                "41e498bfcf2cd1b9"
+            ]
+        ]
+    },
+    {
+        "id": "8da832728405da13",
+        "type": "mongodb out",
+        "z": "4305a8f22f8d3ef9",
+        "mongodb": "3a0d221932fa6fd4",
+        "name": "",
+        "collection": "fotos_manual",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 3220,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "7591f2ffef4e35b8",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Convertir a Cadena",
+        "func": "// Supongamos que msg.payload contiene tu buffer de datos\nvar buffer = msg.payload;\nvar base64String = buffer.toString('base64');\n\n// Crear un nuevo objeto JSON con los campos \"imagen\" y \"fecha\"\nvar nuevoObjeto = {\n    \"imagen\": base64String,\n    \"fecha\": new Date()\n};\n\n// Modificar el objeto msg.payload\nmsg.payload = nuevoObjeto;\n\n// Devolver el objeto msg modificado\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2950,
+        "y": 1040,
+        "wires": [
+            [
+                "8da832728405da13"
+            ]
+        ]
+    },
+    {
+        "id": "47a947818f900a38",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "foto",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 1570,
+        "y": 980,
+        "wires": [
+            [
+                "2154e47c0293dea1",
+                "e13c170d3a249fcd"
+            ]
+        ]
+    },
+    {
+        "id": "2154e47c0293dea1",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Foto sin flash",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Foto sin flash",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1730,
+        "y": 920,
+        "wires": [
+            [
+                "fd6b0de5d236173c",
+                "d3b9e50f4421bf86",
+                "e7227a8e7b6cc81f"
+            ]
+        ]
+    },
+    {
+        "id": "48baeb6afb7151c4",
+        "type": "delay",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2270,
+        "y": 980,
+        "wires": [
+            [
+                "3ccf487865ea2fd4"
+            ]
+        ]
+    },
+    {
+        "id": "0681f53aa3418fd4",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/requestFlash",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 2370,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "783849108833b1ef",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "flash manual",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 1570,
+        "y": 1460,
+        "wires": [
+            [
+                "f4eff6d43354fb26",
+                "bc54d925d8b09148"
+            ]
+        ]
+    },
+    {
+        "id": "f4eff6d43354fb26",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Encender flash",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Encender flash",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1840,
+        "y": 1440,
+        "wires": [
+            [
+                "8b569a5dfb32c383"
+            ]
+        ]
+    },
+    {
+        "id": "bc54d925d8b09148",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Apagar flash",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Apagar flash",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1830,
+        "y": 1480,
+        "wires": [
+            [
+                "9386209acb02d56a"
+            ]
+        ]
+    },
+    {
+        "id": "8b569a5dfb32c383",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato",
+        "func": "msg.payload = { flash: 1 };\nflow.set(\"flash_manual\",1); \nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2040,
+        "y": 1440,
+        "wires": [
+            [
+                "0681f53aa3418fd4",
+                "18b87c0810a6c3a5"
+            ]
+        ]
+    },
+    {
+        "id": "9386209acb02d56a",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato",
+        "func": "msg.payload = { flash: 0 };\nflow.set(\"flash_manual\", 0); \nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2040,
+        "y": 1480,
+        "wires": [
+            [
+                "0681f53aa3418fd4",
+                "9deb5ea007be5cfa"
+            ]
+        ]
+    },
+    {
+        "id": "48e404d1165fc2e6",
+        "type": "delay",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "750",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2430,
+        "y": 1080,
+        "wires": [
+            [
+                "25f0d01de7c4ed29"
+            ]
+        ]
+    },
+    {
+        "id": "96f7830df96c7f10",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "encender flash",
+        "func": "msg = {};\nmsg.payload = {flash: 1};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1080,
+        "wires": [
+            [
+                "87951671168717ab",
+                "48e404d1165fc2e6",
+                "48baeb6afb7151c4"
+            ]
+        ]
+    },
+    {
+        "id": "87951671168717ab",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/requestFlash",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 2550,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "25f0d01de7c4ed29",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "apagar flash",
+        "func": "msg = {};\nmsg.payload = {flash: 0};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2610,
+        "y": 1080,
+        "wires": [
+            [
+                "2c08aaef6d0a62ec"
+            ]
+        ]
+    },
+    {
+        "id": "2c08aaef6d0a62ec",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/requestFlash",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 2890,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "e13c170d3a249fcd",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Foto con flash",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Foto con flash",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1720,
+        "y": 1040,
+        "wires": [
+            [
+                "cd83f8a2e94254f6",
+                "03acb9e722b456bf",
+                "e7227a8e7b6cc81f"
+            ]
+        ]
+    },
+    {
+        "id": "cd83f8a2e94254f6",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "flash manual ON",
+        "property": "flash_manual",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2010,
+        "y": 1040,
+        "wires": [
+            [
+                "48baeb6afb7151c4"
+            ]
+        ]
+    },
+    {
+        "id": "6e0afc25a174876f",
+        "type": "delay",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "750",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2410,
+        "y": 880,
+        "wires": [
+            [
+                "744f76febf476513"
+            ]
+        ]
+    },
+    {
+        "id": "181e2ac6b2687199",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "apagar flash",
+        "func": "msg = {};\nmsg.payload = {flash: 0};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 880,
+        "wires": [
+            [
+                "ee47b6293133da78",
+                "6e0afc25a174876f",
+                "48baeb6afb7151c4"
+            ]
+        ]
+    },
+    {
+        "id": "ee47b6293133da78",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/requestFlash",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 2530,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "744f76febf476513",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "encender flash",
+        "func": "msg = {};\nmsg.payload = {flash: 1};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2580,
+        "y": 880,
+        "wires": [
+            [
+                "b961a48d7686a3de"
+            ]
+        ]
+    },
+    {
+        "id": "b961a48d7686a3de",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/requestFlash",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 2870,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "fd6b0de5d236173c",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "flash manual ON",
+        "property": "flash_manual",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2030,
+        "y": 880,
+        "wires": [
+            [
+                "181e2ac6b2687199"
+            ]
+        ]
+    },
+    {
+        "id": "8d32a6407d2c2036",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "pulsacion",
+        "func": "if(msg.payload.Button==1){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1740,
+        "y": 1120,
+        "wires": [
+            [
+                "e7227a8e7b6cc81f",
+                "03acb9e722b456bf",
+                "cd83f8a2e94254f6"
+            ]
+        ]
+    },
+    {
+        "id": "117d0fcf1f24d01a",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "filtro búsqueda",
+        "func": "msg = {};\nmsg.sort = { \"fecha\": -1 };\nmsg.limit = 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 660,
+        "wires": [
+            [
+                "5fa110f316bef2da"
+            ]
+        ]
+    },
+    {
+        "id": "b38f448f4aa7eaf6",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Recuperar foto",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 1580,
+        "y": 680,
+        "wires": [
+            [
+                "4bb8c17fe0dd2cfe",
+                "bbcc45680635c873"
+            ]
+        ]
+    },
+    {
+        "id": "4bb8c17fe0dd2cfe",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "recuperar foto seguridad",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "recuperar foto seguridad",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1800,
+        "y": 660,
+        "wires": [
+            [
+                "117d0fcf1f24d01a"
+            ]
+        ]
+    },
+    {
+        "id": "36a578b470c6aa07",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato enviar foto",
+        "func": "// Almacenamos la foto obtenida\nvar photo = Buffer.from(msg.payload[0].imagen, 'base64'); \n// Obtiene la fecha actual en formato ISO\nvar fechaISO = msg.payload[0].fecha;\n\n// Crea un objeto de fecha a partir de la cadena ISO\nvar fecha = new Date(fechaISO);\n\n// Formatea la fecha y la hora con dos dígitos cada uno\nvar options = {\n    day: '2-digit',\n    month: '2-digit',\n    year: 'numeric',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit',\n    hour12: false\n};\n\nvar formattedFecha = fecha.toLocaleString('es-ES', options);\nvar caption = `Recuperación de la foto tomada a ${formattedFecha}`;\n\nmsg = {};\nmsg.payload = {};\nmsg.payload.chatId =global.get(\"chatId\");\nmsg.payload.type = \"photo\";\nmsg.payload.content = photo;\nmsg.payload.caption = caption;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2770,
+        "y": 700,
+        "wires": [
+            [
+                "f92e421dd404196b"
+            ]
+        ]
+    },
+    {
+        "id": "a0e9ec4499b54c8d",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "⬅️",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1830,
+        "y": 1720,
+        "wires": [
+            [
+                "fe2b5662a1350136"
+            ]
+        ]
+    },
+    {
+        "id": "07a5ceb59cc537a8",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "➡️",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1830,
+        "y": 1640,
+        "wires": [
+            [
+                "e91c912fbb0bd0f1"
+            ]
+        ]
+    },
+    {
+        "id": "e78e0576eadaa5fb",
+        "type": "ui_led",
+        "z": "4305a8f22f8d3ef9",
+        "order": 3,
+        "group": "be751220ff439da1",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ffffff",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#bbb3ff",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 2370,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "f0e0c74d5ece4e9d",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "🔦✅",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1810,
+        "y": 1400,
+        "wires": [
+            [
+                "8b569a5dfb32c383"
+            ]
+        ]
+    },
+    {
+        "id": "ed9fb681ad29ec85",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "🔦🚫",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1810,
+        "y": 1520,
+        "wires": [
+            [
+                "9386209acb02d56a"
+            ]
+        ]
+    },
+    {
+        "id": "191f5d9f8eb702cb",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP36221669107172/mando/camara",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 2280,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "5f1085b5b94afac1",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 5,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Stop ✋🏻",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1820,
+        "y": 1800,
+        "wires": [
+            [
+                "e8a73d548e05b187"
+            ]
+        ]
+    },
+    {
+        "id": "e8a73d548e05b187",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};    \nmsg.payload = { X: 0, Y: 0, Button: 0 };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 1820,
+        "wires": [
+            [
+                "191f5d9f8eb702cb",
+                "9192f093b663733b"
+            ]
+        ]
+    },
+    {
+        "id": "51ceb6ec1caf58e5",
+        "type": "mqtt in",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/responseFlash",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9759da9f2078cbd1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1950,
+        "y": 1560,
+        "wires": [
+            [
+                "82dfe7abe32ef778"
+            ]
+        ]
+    },
+    {
+        "id": "82dfe7abe32ef778",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato",
+        "func": "if (msg.payload.flash==1){\n    msg.payload = true;\n}else{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1560,
+        "wires": [
+            [
+                "e78e0576eadaa5fb"
+            ]
+        ]
+    },
+    {
+        "id": "0c38d9462745a687",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Movimiento camara",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 1570,
+        "y": 1760,
+        "wires": [
+            [
+                "1bbaf1c7532e0469",
+                "21ab131696c25f84",
+                "784a218b767ee5c1",
+                "f5a0d80bbd1ec728"
+            ]
+        ]
+    },
+    {
+        "id": "fe2b5662a1350136",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: -1, Y: 0, Button: 0 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 1740,
+        "wires": [
+            [
+                "191f5d9f8eb702cb",
+                "498f8634e7d9f179"
+            ]
+        ]
+    },
+    {
+        "id": "e91c912fbb0bd0f1",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: 1, Y: 0, Button: 0 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 1660,
+        "wires": [
+            [
+                "191f5d9f8eb702cb",
+                "980674ad9581b359"
+            ]
+        ]
+    },
+    {
+        "id": "1bbaf1c7532e0469",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Girar derecha",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Girar derecha",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1800,
+        "y": 1680,
+        "wires": [
+            [
+                "e91c912fbb0bd0f1"
+            ]
+        ]
+    },
+    {
+        "id": "21ab131696c25f84",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Girar izquierda",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Girar izquierda",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1800,
+        "y": 1760,
+        "wires": [
+            [
+                "fe2b5662a1350136"
+            ]
+        ]
+    },
+    {
+        "id": "784a218b767ee5c1",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Parar",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Parar",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1770,
+        "y": 1840,
+        "wires": [
+            [
+                "e8a73d548e05b187"
+            ]
+        ]
+    },
+    {
+        "id": "fb21335a4f9f1310",
+        "type": "http request",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 2110,
+        "y": 480,
+        "wires": [
+            [
+                "07e6b5ce75ec38c7"
+            ]
+        ]
+    },
+    {
+        "id": "51f94978c1eb3f5d",
+        "type": "mongodb out",
+        "z": "4305a8f22f8d3ef9",
+        "mongodb": "3a0d221932fa6fd4",
+        "name": "",
+        "collection": "fotos_auto",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 2690,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bc39dbe0bb7e5b77",
+        "type": "mqtt in",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/fotoRutinaria",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9759da9f2078cbd1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1680,
+        "y": 480,
+        "wires": [
+            [
+                "511d3adc964efb19"
+            ]
+        ]
+    },
+    {
+        "id": "6e387049252dc4ae",
+        "type": "ui_slider",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "be751220ff439da1",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "60",
+        "step": 1,
+        "className": "",
+        "x": 1550,
+        "y": 540,
+        "wires": [
+            [
+                "d7929b6bcf191b43"
+            ]
+        ]
+    },
+    {
+        "id": "d7c91029a6ccbc10",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/tiempo",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 1950,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d7929b6bcf191b43",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "function 20",
+        "func": "var t = msg.payload;\nmsg = {};\nmsg.payload = {tiempo : t};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1690,
+        "y": 540,
+        "wires": [
+            [
+                "d7c91029a6ccbc10"
+            ]
+        ]
+    },
+    {
+        "id": "f20a7e5c7047bec0",
+        "type": "ui_text",
+        "z": "4305a8f22f8d3ef9",
+        "group": "be751220ff439da1",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tiempo de guardado de foto automática (minutos)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 2150,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "d3b9e50f4421bf86",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "flash manual OFF",
+        "property": "flash_manual",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2030,
+        "y": 920,
+        "wires": [
+            [
+                "48baeb6afb7151c4"
+            ]
+        ]
+    },
+    {
+        "id": "03acb9e722b456bf",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "flash manual OFF",
+        "property": "flash_manual",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2010,
+        "y": 1080,
+        "wires": [
+            [
+                "96f7830df96c7f10"
+            ]
+        ]
+    },
+    {
+        "id": "e7227a8e7b6cc81f",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "por defecto",
+        "func": "if (typeof flow.get(\"flash_manual\") !== 'number'){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2010,
+        "y": 960,
+        "wires": [
+            [
+                "48baeb6afb7151c4",
+                "96f7830df96c7f10"
+            ]
+        ]
+    },
+    {
+        "id": "e758a130eab2e59d",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 9,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Mandar foto a telegram",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1690,
+        "y": 1080,
+        "wires": [
+            [
+                "cd83f8a2e94254f6",
+                "03acb9e722b456bf",
+                "e7227a8e7b6cc81f"
+            ]
+        ]
+    },
+    {
+        "id": "57bf4fc05bec5bb9",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Configuración de la foto automática",
+        "info": "",
+        "x": 2100,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "5439746f2d7dc480",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Tomar foto manual",
+        "info": "",
+        "x": 1670,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "657418e8f16930c5",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Control manual del flash",
+        "info": "",
+        "x": 1610,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "089d233ae5689d8e",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Control posición de la cámara",
+        "info": "",
+        "x": 1540,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "88ed5b461ee1657b",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "ver streaming",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 2770,
+        "y": 1360,
+        "wires": [
+            [
+                "1e0335c1e2c99557"
+            ]
+        ]
+    },
+    {
+        "id": "1e0335c1e2c99557",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "ver streaming",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ver streaming",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2960,
+        "y": 1360,
+        "wires": [
+            [
+                "22d4f00388312626"
+            ]
+        ]
+    },
+    {
+        "id": "22d4f00388312626",
+        "type": "change",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "Puedes ver el video en streaming de la cámara en el siguiente enlace: http://localhost:1880/ui",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3160,
+        "y": 1360,
+        "wires": [
+            [
+                "2881f103d651d43c"
+            ]
+        ]
+    },
+    {
+        "id": "0d9f2cc057e4ddb9",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "mandar url del streaming",
+        "info": "",
+        "x": 2790,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "b05edcd381ae7879",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: 0, Y: -1, Button: 0 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 1900,
+        "wires": [
+            [
+                "191f5d9f8eb702cb",
+                "73410a9967d7e5e4"
+            ]
+        ]
+    },
+    {
+        "id": "cd7d317dde6c1412",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 8,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "🧭",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1830,
+        "y": 1880,
+        "wires": [
+            [
+                "b05edcd381ae7879"
+            ]
+        ]
+    },
+    {
+        "id": "f5a0d80bbd1ec728",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Centrar",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Centrar",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1780,
+        "y": 1920,
+        "wires": [
+            [
+                "b05edcd381ae7879"
+            ]
+        ]
+    },
+    {
+        "id": "93185867eeb8df04",
+        "type": "mongodb in",
+        "z": "4305a8f22f8d3ef9",
+        "mongodb": "3a0d221932fa6fd4",
+        "name": "",
+        "collection": "fotos_manual",
+        "operation": "find",
+        "x": 2300,
+        "y": 700,
+        "wires": [
+            [
+                "7a53b5cb30f256b7",
+                "417807cd028cd732"
+            ]
+        ]
+    },
+    {
+        "id": "bbcc45680635c873",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "recuperar foto manual",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "recuperar foto manual",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1790,
+        "y": 700,
+        "wires": [
+            [
+                "8082dd810657b211"
+            ]
+        ]
+    },
+    {
+        "id": "8082dd810657b211",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "filtro búsqueda",
+        "func": "msg = {};\nmsg.sort = { \"fecha\": -1 };\nmsg.limit = 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 700,
+        "wires": [
+            [
+                "93185867eeb8df04"
+            ]
+        ]
+    },
+    {
+        "id": "1a7f856c43a7a2f8",
+        "type": "inject",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 3050,
+        "y": 360,
+        "wires": [
+            [
+                "2d4d2fd59a589b1a"
+            ]
+        ]
+    },
+    {
+        "id": "88c474d30d95b0eb",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Borra Base de datos de fotos manuales!!!!!!!!!!",
+        "info": "",
+        "x": 3150,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2d4d2fd59a589b1a",
+        "type": "mongodb out",
+        "z": "4305a8f22f8d3ef9",
+        "mongodb": "3a0d221932fa6fd4",
+        "name": "",
+        "collection": "fotos_manual",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 3320,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b6a1484ea6e179e4",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "error",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "RequestError: connect EHOSTUNREACH 192.168.1.253:80 : http://192.168.1.253/capture",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2750,
+        "y": 960,
+        "wires": [
+            [
+                "f70ad58da3553bc2"
+            ]
+        ]
+    },
+    {
+        "id": "f70ad58da3553bc2",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Formato mensaje error",
+        "func": "// Limpiamos el mensaje\nmsg = {};\nmsg.payload = {};\nmsg.payload.chatId =global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Cámara no disponible actualmente\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2940,
+        "y": 960,
+        "wires": [
+            [
+                "41e498bfcf2cd1b9"
+            ]
+        ]
+    },
+    {
+        "id": "721700e42e1247bd",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "no error",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "RequestError: connect EHOSTUNREACH 192.168.1.253:80 : http://192.168.1.253/capture",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2760,
+        "y": 1000,
+        "wires": [
+            [
+                "93a2ea5580f62d6e",
+                "7591f2ffef4e35b8"
+            ]
+        ]
+    },
+    {
+        "id": "54b43566a3f69212",
+        "type": "inject",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 3050,
+        "y": 460,
+        "wires": [
+            [
+                "d969962ec7aaf219"
+            ]
+        ]
+    },
+    {
+        "id": "a1d04be8a310d27b",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Borra Base de datos de fotos de seguridad!!!!!!!!!!",
+        "info": "",
+        "x": 3160,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d969962ec7aaf219",
+        "type": "mongodb out",
+        "z": "4305a8f22f8d3ef9",
+        "mongodb": "3a0d221932fa6fd4",
+        "name": "",
+        "collection": "fotos_auto",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 3310,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "67880a12ad1a6149",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Convertir a Cadena",
+        "func": "// Supongamos que msg.payload contiene tu buffer de datos\nvar buffer = msg.payload;\nvar base64String = buffer.toString('base64');\n\n// Crear un nuevo objeto JSON con los campos \"imagen\" y \"fecha\"\nvar nuevoObjeto = {\n    \"imagen\": base64String,\n    \"fecha\": new Date()\n};\n\n// Modificar el objeto msg.payload\nmsg.payload = nuevoObjeto;\n\n// Devolver el objeto msg modificado\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2430,
+        "y": 480,
+        "wires": [
+            [
+                "51f94978c1eb3f5d"
+            ]
+        ]
+    },
+    {
+        "id": "07e6b5ce75ec38c7",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "no error",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "RequestError: connect EHOSTUNREACH 192.168.1.253:80 : http://192.168.1.253/capture",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2260,
+        "y": 480,
+        "wires": [
+            [
+                "67880a12ad1a6149"
+            ]
+        ]
+    },
+    {
+        "id": "7a53b5cb30f256b7",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "foto correcta",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2590,
+        "y": 700,
+        "wires": [
+            [
+                "36a578b470c6aa07"
+            ]
+        ]
+    },
+    {
+        "id": "417807cd028cd732",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "foto corrupta",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2590,
+        "y": 660,
+        "wires": [
+            [
+                "fc294203c51c96df"
+            ]
+        ]
+    },
+    {
+        "id": "fc294203c51c96df",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje de error",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"No se ha podido recuperar la foto\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2790,
+        "y": 660,
+        "wires": [
+            [
+                "f92e421dd404196b"
+            ]
+        ]
+    },
+    {
+        "id": "448c24cef981060c",
+        "type": "http request",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 2590,
+        "y": 980,
+        "wires": [
+            [
+                "b6a1484ea6e179e4",
+                "721700e42e1247bd"
+            ]
+        ]
+    },
+    {
+        "id": "9b4cf6c832b8e1b3",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Recuperar foto de la base de datos",
+        "info": "",
+        "x": 1640,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "f92e421dd404196b",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 3030,
+        "y": 680,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "41e498bfcf2cd1b9",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 3170,
+        "y": 980,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "2881f103d651d43c",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 3350,
+        "y": 1360,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "980674ad9581b359",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Girando cámara hacia la derecha\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 1660,
+        "wires": [
+            [
+                "fba50d6b4ef4a6f4"
+            ]
+        ]
+    },
+    {
+        "id": "fba50d6b4ef4a6f4",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 1660,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "73410a9967d7e5e4",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Llevando cámara a su posición inicial\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 1900,
+        "wires": [
+            [
+                "c95ec47a6f2dc9b7"
+            ]
+        ]
+    },
+    {
+        "id": "9192f093b663733b",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Parando movimiento de la cámara\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 1840,
+        "wires": [
+            [
+                "545f32dd6c69b955"
+            ]
+        ]
+    },
+    {
+        "id": "545f32dd6c69b955",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 1840,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "c95ec47a6f2dc9b7",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 1900,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "498f8634e7d9f179",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Girando cámara hacia la izquierda\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 1720,
+        "wires": [
+            [
+                "f1688a7492df5274"
+            ]
+        ]
+    },
+    {
+        "id": "f1688a7492df5274",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 1720,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "18b87c0810a6c3a5",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato",
+        "func": "msg = {};\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Flash de la cámara encendido manualmente\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1420,
+        "wires": [
+            [
+                "a884a0bb4b40c183"
+            ]
+        ]
+    },
+    {
+        "id": "a884a0bb4b40c183",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2410,
+        "y": 1420,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "9deb5ea007be5cfa",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato",
+        "func": "msg = {};\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Flash de la cámara apagado manualmente\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 1500,
+        "wires": [
+            [
+                "c068133a734274c5"
+            ]
+        ]
+    },
+    {
+        "id": "c068133a734274c5",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2410,
+        "y": 1500,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "511d3adc964efb19",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "contruye url",
+        "func": "// Mandamos la url de la foto actual\nmsg = {};\nmsg.url = \"http://\" + flow.get(\"url\") + \"/capture?_cb=\" + Date.now();\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1950,
+        "y": 480,
+        "wires": [
+            [
+                "fb21335a4f9f1310"
+            ]
+        ]
+    },
+    {
+        "id": "3ccf487865ea2fd4",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "contruye url",
+        "func": "// Mandamos la url de la foto actual\nmsg = {};\nmsg.url = \"http://\" + flow.get(\"url\") + \"/capture?_cb=\" + Date.now();\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2430,
+        "y": 980,
+        "wires": [
+            [
+                "448c24cef981060c"
+            ]
+        ]
+    },
+    {
+        "id": "837fd20e603c0e5c",
+        "type": "ui_template",
+        "z": "4305a8f22f8d3ef9",
+        "group": "f0b550a1015b98fa",
+        "name": "Video en Streaming",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<!DOCTYPE html>\n<html lang=\"es\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Stream de Imagen</title>\n</head>\n\n<body>\n\n    <img id=\"stream\" src=\"http://{{msg.payload}}:81/stream\" crossorigin=\"\" alt=\"Stream de Imagen\" style=\"width: 1280px; height: 720px;\">\n\n</body>\n\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 3110,
+        "y": 1440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c5215ae498c1105",
+        "type": "change",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3090,
+        "y": 1480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2bf38ab761db5fc5",
+        "type": "debug",
+        "z": "4305a8f22f8d3ef9",
+        "name": "debug 75",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3080,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "0279759910d41989",
+        "type": "mqtt in",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/IP",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9759da9f2078cbd1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2830,
+        "y": 1480,
+        "wires": [
+            [
+                "8c5215ae498c1105",
+                "837fd20e603c0e5c",
+                "2bf38ab761db5fc5"
+            ]
+        ]
+    },
+    {
+        "id": "55dd5401ca772520",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "be751220ff439da1",
+        "order": 10,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Recargar Streaming",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 2780,
+        "y": 1580,
+        "wires": [
+            [
+                "e5055372471e4f58"
+            ]
+        ]
+    },
+    {
+        "id": "e5055372471e4f58",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP193997127210196/camara/IPRequest",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 3100,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "f686fbc4d6e7ee30",
+        "type": "telegram event",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Movimiento piero",
+        "bot": "f874f8333a9a148c",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 1560,
+        "y": 2200,
+        "wires": [
+            [
+                "92a145a450239ffa",
+                "105a7001a9da4f9c",
+                "f0e7ca9a91f52892",
+                "b1b03e876623424a",
+                "aeb4741901caca8f",
+                "86a10f9f7738b383"
+            ]
+        ]
+    },
+    {
+        "id": "e1a6ed4a79a50252",
+        "type": "comment",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Control posición del piero",
+        "info": "",
+        "x": 1550,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "aec6bb657bd4d6a4",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "38d33de29b50e6c0",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "⬅️",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1830,
+        "y": 2080,
+        "wires": [
+            [
+                "648337cb2e3d1b12"
+            ]
+        ]
+    },
+    {
+        "id": "ff9bf301ef6e665f",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "38d33de29b50e6c0",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "➡️",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1830,
+        "y": 2240,
+        "wires": [
+            [
+                "3e532df2cf993240"
+            ]
+        ]
+    },
+    {
+        "id": "b93726c7be48eb93",
+        "type": "mqtt out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "topic": "II10/ESP36221669107172/mando/piero",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9759da9f2078cbd1",
+        "x": 2280,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "2ba13bdc5aa876b1",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "38d33de29b50e6c0",
+        "order": 5,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Stop ✋🏻",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1820,
+        "y": 2160,
+        "wires": [
+            [
+                "38c352723fb047fa"
+            ]
+        ]
+    },
+    {
+        "id": "38c352723fb047fa",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};    \nmsg.payload = { X: 0, Y: 0, Button: 0 };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 2180,
+        "wires": [
+            [
+                "b93726c7be48eb93",
+                "1ed29bb3879111df"
+            ]
+        ]
+    },
+    {
+        "id": "648337cb2e3d1b12",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: -1, Y: 0, Button: 0 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 2100,
+        "wires": [
+            [
+                "b93726c7be48eb93",
+                "a900d7af53cb4bb0"
+            ]
+        ]
+    },
+    {
+        "id": "3e532df2cf993240",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: 1, Y: 0, Button: 0 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 2260,
+        "wires": [
+            [
+                "b93726c7be48eb93",
+                "2c5a4c58e3067ff3"
+            ]
+        ]
+    },
+    {
+        "id": "b1b03e876623424a",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Girar Derecha",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Girar Derecha",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1800,
+        "y": 2280,
+        "wires": [
+            [
+                "3e532df2cf993240"
+            ]
+        ]
+    },
+    {
+        "id": "105a7001a9da4f9c",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Girar Izquierda",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Girar Izquierda",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1800,
+        "y": 2120,
+        "wires": [
+            [
+                "648337cb2e3d1b12"
+            ]
+        ]
+    },
+    {
+        "id": "f0e7ca9a91f52892",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Detener",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Detener",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1820,
+        "y": 2200,
+        "wires": [
+            [
+                "38c352723fb047fa"
+            ]
+        ]
+    },
+    {
+        "id": "da97c35e9262f131",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: 0, Y: -1, Button: 0 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 2340,
+        "wires": [
+            [
+                "b93726c7be48eb93",
+                "0b75a8ddb16684b9"
+            ]
+        ]
+    },
+    {
+        "id": "4a41fdf4ee2190b8",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "38d33de29b50e6c0",
+        "order": 8,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "⬇",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1830,
+        "y": 2320,
+        "wires": [
+            [
+                "da97c35e9262f131"
+            ]
+        ]
+    },
+    {
+        "id": "aeb4741901caca8f",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Retroceder",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Retroceder",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1810,
+        "y": 2360,
+        "wires": [
+            [
+                "da97c35e9262f131"
+            ]
+        ]
+    },
+    {
+        "id": "2c5a4c58e3067ff3",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Girando el robot hacia la derecha\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 2280,
+        "wires": [
+            [
+                "8415c64e01c6e4b8"
+            ]
+        ]
+    },
+    {
+        "id": "8415c64e01c6e4b8",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 2280,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "0b75a8ddb16684b9",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Moviendo el robot hacia atrás\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 2340,
+        "wires": [
+            [
+                "fd290d6ef77d6dad"
+            ]
+        ]
+    },
+    {
+        "id": "1ed29bb3879111df",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Deteniendo el movimiento del rotot\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 2160,
+        "wires": [
+            [
+                "908f1b4669a37d20"
+            ]
+        ]
+    },
+    {
+        "id": "908f1b4669a37d20",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 2160,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "fd290d6ef77d6dad",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 2340,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "a900d7af53cb4bb0",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Girando el robot hacia la izquierda...\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 2100,
+        "wires": [
+            [
+                "934f423e4b00b61f"
+            ]
+        ]
+    },
+    {
+        "id": "934f423e4b00b61f",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 2100,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "470f22791b84e2e6",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "38d33de29b50e6c0",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "⬆",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1830,
+        "y": 2000,
+        "wires": [
+            [
+                "a932bdc1e6850fb2"
+            ]
+        ]
+    },
+    {
+        "id": "a932bdc1e6850fb2",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: 1, Y: 0, Button: 0 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 2020,
+        "wires": [
+            [
+                "66be56d2f847d777",
+                "b93726c7be48eb93"
+            ]
+        ]
+    },
+    {
+        "id": "92a145a450239ffa",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Avanzar",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Avanzar",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1820,
+        "y": 2040,
+        "wires": [
+            [
+                "a932bdc1e6850fb2"
+            ]
+        ]
+    },
+    {
+        "id": "66be56d2f847d777",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Moviendo el robot hacia delante...\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 2020,
+        "wires": [
+            [
+                "566a13e8b6747ed3"
+            ]
+        ]
+    },
+    {
+        "id": "566a13e8b6747ed3",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 2020,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "df5e2723bcf1ba49",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "comando",
+        "func": "msg = {};\nmsg.payload = { X: 0, Y: 0, Button: 1 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 2420,
+        "wires": [
+            [
+                "e1383a24e26b2598",
+                "b93726c7be48eb93"
+            ]
+        ]
+    },
+    {
+        "id": "6f1fdb7a1bc2d105",
+        "type": "ui_button",
+        "z": "4305a8f22f8d3ef9",
+        "name": "",
+        "group": "38d33de29b50e6c0",
+        "order": 10,
+        "width": "6",
+        "height": 1,
+        "passthru": false,
+        "label": "Switch ➿",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1810,
+        "y": 2400,
+        "wires": [
+            [
+                "df5e2723bcf1ba49"
+            ]
+        ]
+    },
+    {
+        "id": "86a10f9f7738b383",
+        "type": "switch",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Cambiar",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Cambiar",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 1820,
+        "y": 2440,
+        "wires": [
+            [
+                "df5e2723bcf1ba49"
+            ]
+        ]
+    },
+    {
+        "id": "e1383a24e26b2598",
+        "type": "function",
+        "z": "4305a8f22f8d3ef9",
+        "name": "formato mensaje",
+        "func": "// Limpiamos el mensaje\nmsg = {};\n\n// Llenamos el mensaje con los campos del template\nmsg.payload = {};\nmsg.payload.chatId = global.get(\"chatId\");\nmsg.payload.type = \"message\";\nmsg.payload.content = \"Cambiando el modo de funcionamiento del robot\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 2420,
+        "wires": [
+            [
+                "827fe8e6ba5d91d8"
+            ]
+        ]
+    },
+    {
+        "id": "827fe8e6ba5d91d8",
+        "type": "link out",
+        "z": "4305a8f22f8d3ef9",
+        "name": "Telegram sender",
+        "mode": "link",
+        "links": [
+            "1388acc6c5c8355b"
+        ],
+        "x": 2450,
+        "y": 2420,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "06b2503feb89ff9c",
+        "type": "ui_spacer",
+        "z": "4305a8f22f8d3ef9",
+        "name": "spacer",
+        "group": "be751220ff439da1",
+        "order": 7,
+        "width": "2",
+        "height": "1"
+    },
+    {
+        "id": "a40f9e8f29db9f1d",
+        "type": "ui_spacer",
+        "z": "4305a8f22f8d3ef9",
+        "name": "spacer",
+        "group": "38d33de29b50e6c0",
+        "order": 1,
+        "width": "2",
+        "height": "1"
+    },
+    {
+        "id": "5872e5223d1adcc7",
+        "type": "ui_spacer",
+        "z": "4305a8f22f8d3ef9",
+        "name": "spacer",
+        "group": "38d33de29b50e6c0",
+        "order": 3,
+        "width": "2",
+        "height": "1"
+    },
+    {
+        "id": "a51b5fbbab80e7ab",
+        "type": "ui_spacer",
+        "z": "4305a8f22f8d3ef9",
+        "name": "spacer",
+        "group": "38d33de29b50e6c0",
+        "order": 7,
+        "width": "2",
+        "height": "1"
+    },
+    {
+        "id": "c216eae042a7f69f",
+        "type": "ui_spacer",
+        "z": "4305a8f22f8d3ef9",
+        "name": "spacer",
+        "group": "38d33de29b50e6c0",
+        "order": 9,
+        "width": "2",
+        "height": "1"
+    },
+    {
+        "id": "f874f8333a9a148c",
+        "type": "telegram bot",
+        "botname": "LabRobG31bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "9759da9f2078cbd1",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3a0d221932fa6fd4",
+        "type": "mongodb",
+        "hostname": "iot.ac.uma.es:27017",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "II10",
+        "name": ""
+    },
+    {
+        "id": "be751220ff439da1",
+        "type": "ui_group",
+        "name": "Control Cámara",
+        "tab": "bc101023e5d59476",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "f0b550a1015b98fa",
+        "type": "ui_group",
+        "name": "Video Streaming",
+        "tab": "bc101023e5d59476",
+        "order": 1,
+        "disp": true,
+        "width": "25",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "38d33de29b50e6c0",
+        "type": "ui_group",
+        "name": "Control Piero",
+        "tab": "bc101023e5d59476",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bc101023e5d59476",
+        "type": "ui_tab",
+        "name": "Panel de control",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
