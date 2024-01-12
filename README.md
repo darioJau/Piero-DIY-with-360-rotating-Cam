@@ -36,7 +36,7 @@
   - [Resumen de enlaces a todos los videos](#resumen-de-enlaces-a-todos-los-videos)
 
 ## Introducción
-
+[PRUEBA FUSION](Impresión 3D/CamaraPiero)
 
 ## Montaje
 Se adjuntan, a continuación, los pasos del montaje del Piero-DIY:
