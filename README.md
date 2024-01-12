@@ -36,7 +36,7 @@
   - [Resumen de enlaces a todos los videos](#resumen-de-enlaces-a-todos-los-videos)
 
 ## Introducción
-[PRUEBA FUSION](Impresion3D/CamaraPiero.f3d)
+
 
 ## Montaje
 Se adjuntan, a continuación, los pasos del montaje del Piero-DIY:
@@ -881,6 +881,7 @@ void loop() {
   }
 }
 ```
+El código completo puede verse [AQUÍ](CodigosArduino/Mando_G31/Mando_G31.ino)
 ### Implementación de la cámara y su sistema de movimiento
 #### Diseño del circuito
 
@@ -1167,6 +1168,8 @@ void loop() {
   }
 }
 ```
+El código completo puede verse [AQUÍ](CodigosArduino/CameraServer_G31/CameraServer_G31.ino)
+
 A continuación, se adjunta el código del Arduino Nano.
 
 Primero, se incluyen todas las librerias, variables y pines necesarios:
@@ -1267,6 +1270,7 @@ void loop() {
   }
 }
 ```
+El código completo puede verse [AQUÍ](CodigosArduino/ControlMotor_G31/ControlMotor_G31.ino).
 #### Diseño 3D de la carcasa de la cámara y su sistema de movimiento
 
 Para alojar la cámara y todos los elementos que componen su sistema de movimiento, se ha usado la herramienta Fusion 360 de Autodesk. El diseño está compuesto de cuatro partes principales.
@@ -1311,6 +1315,7 @@ Todo el diseño en conjunto viene reflejado en la siguiente /fotos/imagen.
   <img src="/fotos/image-20.png" alt="Descripción de la /fotos/imagen">
 </p>
 
+Se puede acceder al archivo pinchando [AQUÍ](Impresion3D/CamaraPiero.f3d).
 Después de la impresión y el montaje, obtenemos el resultado reflejado en la siguiente /fotos/imagen.
 
 <p align="center">
