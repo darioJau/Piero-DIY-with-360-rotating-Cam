@@ -34,8 +34,9 @@
     - [Salir de clase con Signal Builder](#salir-de-clase-con-signal-builder)
     - [Salir de clase con Matlab Function](#salir-de-clase-con-matlab-function)
     - [Salir de clase con Waypoints](#salir-de-clase-con-waypoints)
-    - [Salir de clase con StateFlow](#salir-de-clase-con-stateflow)
+    - [Salir de clase con StateFlow](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
     - [Salir de clase con Waypoints y evitando obstaculos](#salir-de-clase-con-waypoints-y-evitando-obstaculos)
+  - [Implementación del Proyecto opcional](#implementación-del-proyecto-opcional)
   - [Resumen de enlaces a todos los videos](#resumen-de-enlaces-a-todos-los-videos)
 
 ## Introducción
@@ -217,13 +218,6 @@ La implementación de este programa se basa en tres modelos trabajados previamen
 Este es un video demostrativo de el Piero evitando los obstáculos y con la señalización correspondiente:
 
 [![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/VB6QkytTeBs/0.jpg)](https://www.youtube.com/watch?v=VB6QkytTeBs)
-
-
-#### Alertas
-El sistema creado implementa los cinco estados definidos anteriormente, donde por la entrada recibiremos el valor medido en metros de los sensores izquierdo y derecho. Lo pasaremos a centímetros y lo evaluamos para sacar la salida deseada.
-
-**** completar este apartado
-
 
 ### Encoders de los motores
 
@@ -471,19 +465,26 @@ Vemos entonces, que se ha corregido el error en la orientación haciendo el mism
 
 ## Modelos para salir de clase
 A continuación se detallarán una serie de modelos que proporcionarán al Piero las actuaciones necesarias para conseguir seguir una trayectoria predefinida. Han sido creados para comprobar la versatilidad que ofrece SIMULINK para realizar dicha tarea y así poder comparar para ver qué modelo se adapta mejor.
+
 ### Salir de clase con Signal Builder
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/1b6e65d1-6949-432e-a8db-7e9187f3466e" alt="SignalBuilder">
 
-**** Añadir explicación
+Este modelo es el primero que se implementó, y el más rudimentario. 
+Directamente a través de un generador de señales (Signal Builder), se crea una para la velocidad lineal y otra para la angular. Esta gráfica representa el valor de salida que estará enviando a lo largo del tiempo.
+Es muy complicado definir una trayectoria precisa mediante este método, ya que habrá que calcular para cada movimiento, el tiempo ddurante el que se tiene que aplicar cada comando para recorrer la distancia o girar el ángulo deseado.
 
 ### Salir de clase con Matlab Function
 
-**** Añadir más explicación
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/050cedc0-b910-4944-a2e1-df82eafc195c" alt="waypoints">
 
 El modelo Salir de clase con Matlaf Function hace uso del bloque Matlab function, al que se le ha programado un pequeño algoritmo de Pure Pursuit.
+
+<img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/e253f826-9fc4-4400-aa83-c610d824c052" alt="MF">
+
+Como podemos ver en esta imagen ampliada, la trayectoria pasa directamente a la variable "camino", la posición x e y vienen de la odometría, y la i, representa la iteración por donde va respecto a la trayectoria.
+
 
 <img src="https://github.com/Escuela-de-Ingenierias-Industriales/LaboratorioRobotica-lr2023grupo31/assets/145780818/4e4621c6-b4a8-4e7d-8144-92bdf4e2b5fb" alt="MF">
 
@@ -542,6 +543,15 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
 
 [![Video demostratvo Salir de clase con obstáculos](https://img.youtube.com/vi/SUVn5_DVqa4/0.jpg)](https://www.youtube.com/watch?v=SUVn5_DVqa4)
 
+
+## Implementación del Proyecto opcional
+
+
+
+
+
+
+
 ## Resumen de enlaces a todos los videos
 
 
@@ -590,3 +600,7 @@ Como se puede apreciar en la gráfica, el control implementado es bastante preci
  Saliendo de clase evitando los obstáculos
  
    [https://youtu.be/SUVn5_DVqa4](https://youtu.be/SUVn5_DVqa4)
+   
+ Demostración del proyecto opcional
+ 
+   [https://youtu.be/6Vd62COOqGI](https://youtu.be/6Vd62COOqGI)
