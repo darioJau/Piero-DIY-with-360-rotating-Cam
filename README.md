@@ -1,6 +1,10 @@
 
 # PieroDIYProject Grupo 31 - Laboratorio de Robótica 2023-24
 
+<p align="center">
+  <img src="/fotos/PieroDIY_RotatingCam.jpg" alt="Imagen de portada", width="450">
+</p>
+
 - [PieroDIYProject Grupo 31 - Laboratorio de Robótica 2023-24](#pierodiyproject-grupo-31---laboratorio-de-robótica-2023-24)
   - [Introducción](#introducción)
   - [Montaje](#montaje)
